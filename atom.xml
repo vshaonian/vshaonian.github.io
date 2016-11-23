@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
-  
+  <title>少年</title>
+  <subtitle>正直，纯洁，善良</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-23T11:11:42.455Z</updated>
+  <updated>2016-11-23T13:52:59.844Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>少年</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新主题</title>
+    <link href="http://yoursite.com/2016/11/23/%E6%96%B0%E4%B8%BB%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/11/23/新主题/</id>
+    <published>2016-11-23T13:52:59.000Z</published>
+    <updated>2016-11-23T13:52:59.844Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>js实现一个简单的计算器</title>
