@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-23T11:00:33.214Z</updated>
+  <updated>2016-11-23T11:11:42.455Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js实现一个简单的计算器</title>
+    <link href="http://yoursite.com/2016/11/23/js%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
+    <id>http://yoursite.com/2016/11/23/js实现一个简单的计算器/</id>
+    <published>2016-11-23T11:11:42.000Z</published>
+    <updated>2016-11-23T11:11:42.455Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>如何使用gitHub Pages和Hexo搭建个人博客</title>
