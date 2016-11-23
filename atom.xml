@@ -34,12 +34,20 @@
     <link href="http://yoursite.com/2016/11/23/js%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
     <id>http://yoursite.com/2016/11/23/js实现一个简单的计算器/</id>
     <published>2016-11-23T11:11:42.000Z</published>
-    <updated>2016-11-23T11:11:42.455Z</updated>
+    <updated>2016-11-23T14:15:44.785Z</updated>
     
     <summary type="html">
     
     </summary>
     
+      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
+    
+      <category term="Demo" scheme="http://yoursite.com/tags/Demo/"/>
     
   </entry>
   
