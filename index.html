@@ -157,31 +157,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#####<a href="http://sunxiaoyu233.cn/danmu.html" target="_blank" rel="external">弹幕墙APP点这里</a></p>
+        <p><a href="http://sunxiaoyu233.cn/danmu.html">弹幕墙APP点这里</a></p>
 <blockquote>
-<p><strong>功能:</strong> 实现发射弹幕、清除弹幕、显示弹幕功能。<br><strong>扩展:</strong> 用<a href="https://www.wilddog.com/" target="_blank" rel="external">野狗实时后端云</a>来存储弹幕数据。</p>
+<p><strong>功能:</strong> 实现发射弹幕、清除弹幕、显示弹幕功能。<br><strong>扩展:</strong> 用<a href="https://www.wilddog.com/">野狗实时后端云</a>来存储弹幕数据。</p>
 </blockquote>
-<p><strong>按照</strong> : 结构–&gt;样式–&gt;功能–&gt;存储  进行开发</p>
-<p>结构和样式很简单：<br><img src="http://upload-images.jianshu.io/upload_images/3259626-879590d875c9847f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这里注意由于要实现弹幕滚动要用到绝对定位，然后动态改变弹幕 <code>left</code> 的值。这里用到绝对定位元素的居中。</p>
-<p>由于绝对定位脱离了文档流，所以用 <code>text-align:center</code> 和 <code>margin: 0 auto</code>实现不了水平居中，这里要用到一种比较暴力的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">top: 0;</div><div class="line">bottom: 0;</div><div class="line">left: 0;</div><div class="line">right: 0;</div></pre></td></tr></table></figure>
-<p>就是使其既向上也向下，既向上又向下。这样它就不知所措，所以就乖乖的呆在中间了233</p>
-<p>还有一种方法，用到css3的 <code>transform</code> 方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">top: 50%;</div><div class="line">left: 50%;</div><div class="line">transform: translate(-50%, -50%);</div></pre></td></tr></table></figure>
-<p>就是先相对于父元素偏移50%，再使自己相对于自己移动50%。不知道为什么这种方法我没实现。</p>
-<p>最重要的 <strong>功能</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//创建数据库引用</div><div class="line">var config = &#123;</div><div class="line">    authDomain: &quot;sxydanmu.wilddog.com&quot;,</div><div class="line">    syncURL: &quot;https://sxydanmu.wilddogio.com&quot;</div><div class="line">  &#125;;</div><div class="line">  wilddog.initializeApp(config);</div><div class="line">  var ref = wilddog.sync().ref();</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//发射按钮事件</div><div class="line">  $(&quot;#shut&quot;).click(function() &#123;</div><div class="line">    var text = $(&quot;.s_txt&quot;).val();//获取输入框文字</div><div class="line">    ref.child(&apos;message&apos;).push(text);// 将数据写到云端 message 节点下，child 用来定位子节点</div><div class="line">    $(&quot;.s_txt&quot;).val(&apos;&apos;);//清空输入框</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//清空按钮事件</div><div class="line">  $(&quot;#clc&quot;).click(function() &#123;</div><div class="line">    ref.remove();//清空云端数据</div><div class="line">    arr = [];</div><div class="line">    $(&quot;.move&quot;).empty();//清空显示框</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 绑定 &apos;child_added&apos; 事件，当 message 节点下有子节点新增时，就会触发回调，回调的 `snapshot` 对象包含了新增的数据</div><div class="line">  ref.child(&apos;message&apos;).on(&apos;child_added&apos;, function(snapshot) &#123;</div><div class="line">  	var text = snapshot.val();</div><div class="line">    arr.push(text);</div><div class="line">    var textObj = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;);</div><div class="line">    textObj.text(text);</div><div class="line">    $(&quot;.move&quot;).append(textObj);</div><div class="line">    moveObj(textObj);</div><div class="line">    console.log(text);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//清屏后清空云端数据，清空本地弹幕</div><div class="line">  ref.on(&apos;child_removed&apos;, function(snapshot) &#123;</div><div class="line">    arr = [];</div><div class="line">    $(&quot;.show&quot;).empty();</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//弹幕滚动及逐条显示</div><div class="line">var topMin = $(&apos;.message&apos;).offset().top; 	 // 显示框距顶部距离</div><div class="line">  var topMax = topMin + $(&apos;.message&apos;).height(); // 显示框底部距顶部距离</div><div class="line">  var _top = topMin; // 每个滚动消息距顶部距离</div><div class="line">  var moveObj = function(obj) &#123;</div><div class="line">  	var _left = $(&apos;.message&apos;).width() - obj.width();</div><div class="line">  	_top = _top + 50;</div><div class="line">  	if (_top &gt; (topMax - 50)) &#123;</div><div class="line">  		_top = topMin;</div><div class="line">  	&#125;</div><div class="line">  	obj.css(&#123;</div><div class="line">  		left : _left,</div><div class="line">  		top : _top,</div><div class="line">  		color : getRandomColor()  // 获取随机颜色</div><div class="line">  	&#125;);</div><div class="line">  	var time = 20000 + 10000 * Math.random();</div><div class="line">  	// animate() 方法执行 CSS 属性集的自定义动画。逐渐改变的，这样就可以创建动画效果。</div><div class="line">  	obj.animate(&#123;</div><div class="line">  		left : &quot;-&quot; + _left + &quot;px&quot;  // 让消息距左距离逐渐减小，产生右向左滚动动画。</div><div class="line">  	&#125;, time, function() &#123;</div><div class="line">  		obj.remove();</div><div class="line">  	&#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//在屏幕上输出弹幕</div><div class="line">  var getAndRun = function() &#123; //弹幕输出</div><div class="line">	if (arr.length &gt; 0) &#123;</div><div class="line">		var n = Math.floor(Math.random() * arr.length + 1) - 1;</div><div class="line">		var textObj = $(&quot;&lt;div&gt;&quot; + arr[n] + &quot;&lt;/div&gt;&quot;);</div><div class="line">		$(&quot;.move&quot;).append(textObj);</div><div class="line">		moveObj(textObj);</div><div class="line">	&#125;</div><div class="line">	setTimeout(getAndRun, 3000);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//随机颜色函数</div><div class="line">var getRandomColor = function() &#123;//随机颜色函数</div><div class="line">	return &apos;#&apos; + (function(h) &#123;</div><div class="line">		return new Array(7 - h.length).join(&quot;0&quot;) + h</div><div class="line">	&#125;)((Math.random() * 0x1000000 &lt;&lt; 0).toString(16))</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p>大致就是这么多了，其实照着文档写倒也没花太多功夫。</p>
-<p>写了这个弹幕APP，让我学会了写JQuery，之前一直写原生的JS，果然JQuery方便的多。不过我觉得我还是喜欢写原生的（我是不是有病）</p>
-
+<p><strong>按照</strong> : 结构–&gt;样式–&gt;功能–&gt;存储  进行开发<br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2016/11/23/实现一个弹幕墙APP/#more">more >></a>
+        </p>
       
     </div>
     <div class="article-info article-info-index">
@@ -235,22 +218,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大致长这样</p>
-<blockquote>
-<p><strong>功能1:</strong> 可以对两个数字进行加、减、乘、除的运算.<br><strong>功能2:</strong> 可以使用清除按钮清空当前的所有输入内容.<br><strong>功能3:</strong> 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/3259626-0607f70596cf923c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>由于我对原生js有一种迷之热爱（微笑.jpg），所以没用JQuery。<br>css很简单，但是没仔细做，自适应也没写。</p>
-<p><strong>思路:</strong></p>
-<p> 给每个按钮一个Value，然后js获取点击按钮value。新建一个空的数组，每次获取点击的value之后push进去，然后用<code>arr.join(&quot;&quot;)</code>转换为字符串，并赋值给input的value就可以显示了。这里有一点，input设置为<code>readonly</code>。</p>
-<p>当<code>value == &quot;=&quot;</code>时，用到<code>eval()</code>函数。</p>
-<blockquote>
-<p>eval() 将一个JavaScript代码字符串求值成特定的对象。</p>
-</blockquote>
-<p>这个函数难点在于AC和CE。AC是清除所有输入，很简单，直接另数组=[]。</p>
-<p>CE的话可以用<code>arr.pop()</code>,该方法用于删除数组中最后一个元素。</p>
-<p><strong>总体js代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var values;</div><div class="line">var txt = [];</div><div class="line">var prt = document.getElementById(&quot;prt&quot;);</div><div class="line">var rel;</div><div class="line">function getValues() &#123;</div><div class="line">  var btns = document.getElementsByTagName(&quot;button&quot;);</div><div class="line">  for (var i = 0; i &lt; btns.length; i++) &#123;</div><div class="line">    btns[i].onclick = function() &#123;</div><div class="line">      values = this.value;</div><div class="line">      if (values !=  &quot;Ans&quot;) &#123;</div><div class="line">        if (values == &quot;=&quot;) &#123;</div><div class="line">          rel = eval(txt.join(&quot;&quot;));</div><div class="line">          console.log(rel);</div><div class="line">          prt.value = rel;</div><div class="line">          txt = [];</div><div class="line">          txt.push(rel);</div><div class="line">        &#125; else if (values == &quot;AC&quot;) &#123;</div><div class="line">          prt.value = [];</div><div class="line">          txt = [];</div><div class="line">        &#125; else if (values == &quot;CE&quot;) &#123;</div><div class="line">          txt.pop();</div><div class="line">          prt.value = txt.join(&quot;&quot;);</div><div class="line">          &#125; else &#123;</div><div class="line">            txt.push(values);</div><div class="line">            prt.value = txt.join(&quot;&quot;);</div><div class="line">          &#125;;</div><div class="line">        &#125;;</div><div class="line">        console.log(txt);</div><div class="line">      &#125;;</div><div class="line">    &#125;;</div><div class="line">  &#125;;</div><div class="line">window.onload = getValues;</div></pre></td></tr></table></figure>
+        <blockquote>
+<p><strong>功能1:</strong> 可以对两个数字进行加、减、乘、除的运算.<br><strong>功能2:</strong> 可以使用清除按钮清空当前的所有输入内容.<br><strong>功能3:</strong> 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.<br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2016/11/23/js实现一个简单的计算器/#more">more >></a>
+        </p>
       
     </div>
     <div class="article-info article-info-index">
@@ -361,16 +333,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2016/11/23/hello-world/#more">more >></a>
+        </p>
       
     </div>
     <div class="article-info article-info-index">

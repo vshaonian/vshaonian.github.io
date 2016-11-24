@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/23/hello-world/</loc>
+    
+    <lastmod>2016-11-24T03:24:34.300Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/11/23/js%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%A1%E7%AE%97%E5%99%A8/</loc>
     
-    <lastmod>2016-11-24T03:14:10.249Z</lastmod>
+    <lastmod>2016-11-24T03:23:51.457Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2016/11/23/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%BC%B9%E5%B9%95%E5%A2%99APP/</loc>
     
-    <lastmod>2016-11-23T14:48:43.000Z</lastmod>
+    <lastmod>2016-11-24T03:23:36.130Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://yoursite.com/%E9%A1%B5%E9%9D%A2%E5%90%8D%E7%A7%B0/index.html</loc>
     
     <lastmod>2016-11-23T10:57:35.782Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/11/23/hello-world/</loc>
-    
-    <lastmod>2016-11-23T09:35:47.947Z</lastmod>
     
   </url>
   
