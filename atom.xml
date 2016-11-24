@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-24T03:23:36.130Z</updated>
+  <updated>2016-11-24T03:30:20.804Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,12 +20,10 @@
     <link href="http://yoursite.com/2016/11/23/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%BC%B9%E5%B9%95%E5%A2%99APP/"/>
     <id>http://yoursite.com/2016/11/23/实现一个弹幕墙APP/</id>
     <published>2016-11-23T14:46:33.000Z</published>
-    <updated>2016-11-24T03:23:36.130Z</updated>
+    <updated>2016-11-24T03:30:20.804Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://sunxiaoyu233.cn/danmu.html" target="_blank" rel="external">弹幕墙APP点这里</a></p>
-<blockquote>
 <p><strong>功能:</strong> 实现发射弹幕、清除弹幕、显示弹幕功能。<br><strong>扩展:</strong> 用<a href="https://www.wilddog.com/" target="_blank" rel="external">野狗实时后端云</a>来存储弹幕数据。</p>
-</blockquote>
 <p><strong>按照</strong> : 结构–&gt;样式–&gt;功能–&gt;存储  进行开发<br><a id="more"></a><br>结构和样式很简单：<br><img src="http://upload-images.jianshu.io/upload_images/3259626-879590d875c9847f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>这里注意由于要实现弹幕滚动要用到绝对定位，然后动态改变弹幕 <code>left</code> 的值。这里用到绝对定位元素的居中。</p>
 <p>由于绝对定位脱离了文档流，所以用 <code>text-align:center</code> 和 <code>margin: 0 auto</code>实现不了水平居中，这里要用到一种比较暴力的方法</p>
@@ -50,9 +48,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;a href=&quot;http://sunxiaoyu233.cn/danmu.html&quot;&gt;弹幕墙APP点这里&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;功能:&lt;/strong&gt; 实现发射弹幕、清除弹幕、显示弹幕功能。&lt;br&gt;&lt;strong&gt;扩展:&lt;/strong&gt; 用&lt;a href=&quot;https://www.wilddog.com/&quot;&gt;野狗实时后端云&lt;/a&gt;来存储弹幕数据。&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;按照&lt;/strong&gt; : 结构–&amp;gt;样式–&amp;gt;功能–&amp;gt;存储  进行开发&lt;br&gt;
     
     </summary>
@@ -73,11 +69,9 @@
     <link href="http://yoursite.com/2016/11/23/js%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
     <id>http://yoursite.com/2016/11/23/js实现一个简单的计算器/</id>
     <published>2016-11-23T11:11:42.000Z</published>
-    <updated>2016-11-24T03:23:51.457Z</updated>
+    <updated>2016-11-24T03:30:14.626Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
-<p><strong>功能1:</strong> 可以对两个数字进行加、减、乘、除的运算.<br><strong>功能2:</strong> 可以使用清除按钮清空当前的所有输入内容.<br><strong>功能3:</strong> 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.<br><a id="more"></a><br><img src="http://upload-images.jianshu.io/upload_images/3259626-0607f70596cf923c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</blockquote>
+    <content type="html"><![CDATA[<p><strong>功能1:</strong> 可以对两个数字进行加、减、乘、除的运算.<br><strong>功能2:</strong> 可以使用清除按钮清空当前的所有输入内容.<br><strong>功能3:</strong> 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.<br><a id="more"></a><br><img src="http://upload-images.jianshu.io/upload_images/3259626-0607f70596cf923c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>由于我对原生js有一种迷之热爱（微笑.jpg），所以没用JQuery。<br>css很简单，但是没仔细做，自适应也没写。</p>
 <p><strong>思路:</strong></p>
 <p> 给每个按钮一个Value，然后js获取点击按钮value。新建一个空的数组，每次获取点击的value之后push进去，然后用<code>arr.join(&quot;&quot;)</code>转换为字符串，并赋值给input的value就可以显示了。这里有一点，input设置为<code>readonly</code>。</p>
@@ -92,8 +86,7 @@
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;功能1:&lt;/strong&gt; 可以对两个数字进行加、减、乘、除的运算.&lt;br&gt;&lt;strong&gt;功能2:&lt;/strong&gt; 可以使用清除按钮清空当前的所有输入内容.&lt;br&gt;&lt;strong&gt;功能3:&lt;/strong&gt; 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.&lt;br&gt;
+      &lt;p&gt;&lt;strong&gt;功能1:&lt;/strong&gt; 可以对两个数字进行加、减、乘、除的运算.&lt;br&gt;&lt;strong&gt;功能2:&lt;/strong&gt; 可以使用清除按钮清空当前的所有输入内容.&lt;br&gt;&lt;strong&gt;功能3:&lt;/strong&gt; 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.&lt;br&gt;
     
     </summary>
     
