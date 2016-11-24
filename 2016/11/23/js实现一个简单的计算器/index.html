@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>js实现一个简单的计算器 | 少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="功能1: 可以对两个数字进行加、减、乘、除的运算.功能2: 可以使用清除按钮清空当前的所有输入内容.功能3: 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.">
+  <meta name="description" content="Demo戳这里功能1: 可以对两个数字进行加、减、乘、除的运算.功能2: 可以使用清除按钮清空当前的所有输入内容.功能3: 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js实现一个简单的计算器">
 <meta property="og:url" content="http://yoursite.com/2016/11/23/js实现一个简单的计算器/index.html">
 <meta property="og:site_name" content="少年">
-<meta property="og:description" content="功能1: 可以对两个数字进行加、减、乘、除的运算.功能2: 可以使用清除按钮清空当前的所有输入内容.功能3: 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.">
+<meta property="og:description" content="Demo戳这里功能1: 可以对两个数字进行加、减、乘、除的运算.功能2: 可以使用清除按钮清空当前的所有输入内容.功能3: 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-0607f70596cf923c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-11-24T03:30:14.626Z">
+<meta property="og:updated_time" content="2016-11-24T05:05:31.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js实现一个简单的计算器">
-<meta name="twitter:description" content="功能1: 可以对两个数字进行加、减、乘、除的运算.功能2: 可以使用清除按钮清空当前的所有输入内容.功能3: 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.">
+<meta name="twitter:description" content="Demo戳这里功能1: 可以对两个数字进行加、减、乘、除的运算.功能2: 可以使用清除按钮清空当前的所有输入内容.功能3: 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3259626-0607f70596cf923c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="少年" type="application/atom+xml">
@@ -161,7 +161,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>功能1:</strong> 可以对两个数字进行加、减、乘、除的运算.<br><strong>功能2:</strong> 可以使用清除按钮清空当前的所有输入内容.<br><strong>功能3:</strong> 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.<br><a id="more"></a><br><img src="http://upload-images.jianshu.io/upload_images/3259626-0607f70596cf923c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p> <a href="http://sunxiaoyu233.cn/FCC/calculator.html" target="_blank" rel="external">Demo戳这里</a><br><strong>功能1:</strong> 可以对两个数字进行加、减、乘、除的运算.<br><strong>功能2:</strong> 可以使用清除按钮清空当前的所有输入内容.<br><strong>功能3:</strong> 可以把多个运算连接起来操作, 直到按下等号键, 计算器输出正确的运算结果.<br><a id="more"></a><br><img src="http://upload-images.jianshu.io/upload_images/3259626-0607f70596cf923c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>由于我对原生js有一种迷之热爱（微笑.jpg），所以没用JQuery。<br>css很简单，但是没仔细做，自适应也没写。</p>
 <p><strong>思路:</strong></p>
 <p> 给每个按钮一个Value，然后js获取点击按钮value。新建一个空的数组，每次获取点击的value之后push进去，然后用<code>arr.join(&quot;&quot;)</code>转换为字符串，并赋值给input的value就可以显示了。这里有一点，input设置为<code>readonly</code>。</p>
