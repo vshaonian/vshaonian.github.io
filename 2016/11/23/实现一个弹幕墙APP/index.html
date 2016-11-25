@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>实现一个弹幕墙APP | 少年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="弹幕墙APP点这里
+功能: 实现发射弹幕、清除弹幕、显示弹幕功能。扩展: 用野狗实时后端云来存储弹幕数据。
+按照 : 结构–&amp;gt;样式–&amp;gt;功能–&amp;gt;存储  进行开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现一个弹幕墙APP">
+<meta property="og:url" content="http://yoursite.com/2016/11/23/实现一个弹幕墙APP/index.html">
+<meta property="og:site_name" content="少年">
+<meta property="og:description" content="弹幕墙APP点这里
+功能: 实现发射弹幕、清除弹幕、显示弹幕功能。扩展: 用野狗实时后端云来存储弹幕数据。
+按照 : 结构–&amp;gt;样式–&amp;gt;功能–&amp;gt;存储  进行开发">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-879590d875c9847f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-11-24T07:43:11.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现一个弹幕墙APP">
+<meta name="twitter:description" content="弹幕墙APP点这里
+功能: 实现发射弹幕、清除弹幕、显示弹幕功能。扩展: 用野狗实时后端云来存储弹幕数据。
+按照 : 结构–&amp;gt;样式–&amp;gt;功能–&amp;gt;存储  进行开发">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3259626-879590d875c9847f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="少年" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="https://avatars2.githubusercontent.com/u/18158468?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">少年</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">正直，纯洁，善良</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/vshaonian" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-yu-7-13" title="zhihu">zhihu</a>
+		        
+					<a class="mail" target="_blank" href="/sxyer@outlook.com" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">少年</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="https://avatars2.githubusercontent.com/u/18158468?v=3&amp;s=460" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">少年</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">正直，纯洁，善良</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/vshaonian" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-yu-7-13" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/sxyer@outlook.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-实现一个弹幕墙APP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      实现一个弹幕墙APP
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://sunxiaoyu233.cn/danmu.html" target="_blank" rel="external">弹幕墙APP点这里</a></p>
+<p><strong>功能:</strong> 实现发射弹幕、清除弹幕、显示弹幕功能。<br><strong>扩展:</strong> 用<a href="https://www.wilddog.com/" target="_blank" rel="external">野狗实时后端云</a>来存储弹幕数据。</p>
+<p><strong>按照</strong> : 结构–&gt;样式–&gt;功能–&gt;存储  进行开发<br><a id="more"></a><br>结构和样式很简单：<br><img src="http://upload-images.jianshu.io/upload_images/3259626-879590d875c9847f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这里注意由于要实现弹幕滚动要用到绝对定位，然后动态改变弹幕 <code>left</code> 的值。这里用到绝对定位元素的居中。</p>
+<p>由于绝对定位脱离了文档流，所以用 <code>text-align:center</code> 和 <code>margin: 0 auto</code>实现不了水平居中，这里要用到一种比较暴力的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">top: 0;</div><div class="line">bottom: 0;</div><div class="line">left: 0;</div><div class="line">right: 0;</div></pre></td></tr></table></figure>
+<p>就是使其既向上也向下，既向上又向下。这样它就不知所措，所以就乖乖的呆在中间了233</p>
+<p>还有一种方法，用到css3的 <code>transform</code> 方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">top: 50%;</div><div class="line">left: 50%;</div><div class="line">transform: translate(-50%, -50%);</div></pre></td></tr></table></figure>
+<p>就是先相对于父元素偏移50%，再使自己相对于自己移动50%。不知道为什么这种方法我没实现。</p>
+<p>最重要的 <strong>功能</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//创建数据库引用</div><div class="line">var config = &#123;</div><div class="line">    authDomain: &quot;sxydanmu.wilddog.com&quot;,</div><div class="line">    syncURL: &quot;https://sxydanmu.wilddogio.com&quot;</div><div class="line">  &#125;;</div><div class="line">  wilddog.initializeApp(config);</div><div class="line">  var ref = wilddog.sync().ref();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//发射按钮事件</div><div class="line">  $(&quot;#shut&quot;).click(function() &#123;</div><div class="line">    var text = $(&quot;.s_txt&quot;).val();//获取输入框文字</div><div class="line">    ref.child(&apos;message&apos;).push(text);// 将数据写到云端 message 节点下，child 用来定位子节点</div><div class="line">    $(&quot;.s_txt&quot;).val(&apos;&apos;);//清空输入框</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//清空按钮事件</div><div class="line">  $(&quot;#clc&quot;).click(function() &#123;</div><div class="line">    ref.remove();//清空云端数据</div><div class="line">    arr = [];</div><div class="line">    $(&quot;.move&quot;).empty();//清空显示框</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 绑定 &apos;child_added&apos; 事件，当 message 节点下有子节点新增时，就会触发回调，回调的 `snapshot` 对象包含了新增的数据</div><div class="line">  ref.child(&apos;message&apos;).on(&apos;child_added&apos;, function(snapshot) &#123;</div><div class="line">  	var text = snapshot.val();</div><div class="line">    arr.push(text);</div><div class="line">    var textObj = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;);</div><div class="line">    textObj.text(text);</div><div class="line">    $(&quot;.move&quot;).append(textObj);</div><div class="line">    moveObj(textObj);</div><div class="line">    console.log(text);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//清屏后清空云端数据，清空本地弹幕</div><div class="line">  ref.on(&apos;child_removed&apos;, function(snapshot) &#123;</div><div class="line">    arr = [];</div><div class="line">    $(&quot;.show&quot;).empty();</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//弹幕滚动及逐条显示</div><div class="line">var topMin = $(&apos;.message&apos;).offset().top; 	 // 显示框距顶部距离</div><div class="line">  var topMax = topMin + $(&apos;.message&apos;).height(); // 显示框底部距顶部距离</div><div class="line">  var _top = topMin; // 每个滚动消息距顶部距离</div><div class="line">  var moveObj = function(obj) &#123;</div><div class="line">  	var _left = $(&apos;.message&apos;).width() - obj.width();</div><div class="line">  	_top = _top + 50;</div><div class="line">  	if (_top &gt; (topMax - 50)) &#123;</div><div class="line">  		_top = topMin;</div><div class="line">  	&#125;</div><div class="line">  	obj.css(&#123;</div><div class="line">  		left : _left,</div><div class="line">  		top : _top,</div><div class="line">  		color : getRandomColor()  // 获取随机颜色</div><div class="line">  	&#125;);</div><div class="line">  	var time = 20000 + 10000 * Math.random();</div><div class="line">  	// animate() 方法执行 CSS 属性集的自定义动画。逐渐改变的，这样就可以创建动画效果。</div><div class="line">  	obj.animate(&#123;</div><div class="line">  		left : &quot;-&quot; + _left + &quot;px&quot;  // 让消息距左距离逐渐减小，产生右向左滚动动画。</div><div class="line">  	&#125;, time, function() &#123;</div><div class="line">  		obj.remove();</div><div class="line">  	&#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//在屏幕上输出弹幕</div><div class="line">  var getAndRun = function() &#123; //弹幕输出</div><div class="line">	if (arr.length &gt; 0) &#123;</div><div class="line">		var n = Math.floor(Math.random() * arr.length + 1) - 1;</div><div class="line">		var textObj = $(&quot;&lt;div&gt;&quot; + arr[n] + &quot;&lt;/div&gt;&quot;);</div><div class="line">		$(&quot;.move&quot;).append(textObj);</div><div class="line">		moveObj(textObj);</div><div class="line">	&#125;</div><div class="line">	setTimeout(getAndRun, 3000);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//随机颜色函数</div><div class="line">var getRandomColor = function() &#123;//随机颜色函数</div><div class="line">	return &apos;#&apos; + (function(h) &#123;</div><div class="line">		return new Array(7 - h.length).join(&quot;0&quot;) + h</div><div class="line">	&#125;)((Math.random() * 0x1000000 &lt;&lt; 0).toString(16))</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>大致就是这么多了，其实照着文档写倒也没花太多功夫。</p>
+<p>写了这个弹幕APP，让我学会了写JQuery，之前一直写原生的JS，果然JQuery方便的多。不过我觉得我还是喜欢写原生的（我是不是有病）</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/23/实现一个弹幕墙APP/" class="archive-article-date">
+  	<time datetime="2016-11-23T14:46:33.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Demo/">Demo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FCC/">FCC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/24/js字符串转数字/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js字符串转数字
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/23/js实现一个简单的计算器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js实现一个简单的计算器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 少年
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Demo/" style="font-size: 15px;">Demo</a> <a href="/tags/FCC/" style="font-size: 15px;">FCC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/cbad7dd16f6d/latest_articles">我的简书</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sunxiaoyu233.cn">我的网站</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">努力&lt;br&gt;&lt;br&gt;希望能成为一名前端工程师&lt;br&gt;加油</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
