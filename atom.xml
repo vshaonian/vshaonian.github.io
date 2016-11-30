@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-24T15:24:21.000Z</updated>
+  <updated>2016-11-30T14:57:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,157 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基础javascript算法</title>
+    <link href="http://yoursite.com/2016/11/30/%E5%9F%BA%E7%A1%80javascript%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/11/30/基础javascript算法/</id>
+    <published>2016-11-30T14:55:05.000Z</published>
+    <updated>2016-11-30T14:57:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>终于把FCC的基础javascript算法做完了，来总结一下。</p>
+<a id="more"></a>
+<p>###翻转字符串</p>
+<blockquote>
+<p>先把字符串转化成数组，再借助数组的reverse方法翻转数组顺序，最后把数组转化成字符串。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function reverseString(str) &#123;</div><div class="line">  var arr = str.split(&quot;&quot;);</div><div class="line">  var arrs = arr.reverse(); </div><div class="line">  var rts = arr.join(&quot;&quot;);</div><div class="line">  return rts;</div><div class="line">&#125;</div><div class="line"></div><div class="line">reverseString(&quot;hello&quot;);</div></pre></td></tr></table></figure>
+<p>主要用到了</p>
+<ol>
+<li><code>str.split()</code>分割字符串并生成数组。</li>
+<li><code>arr.reverse()</code>反转数组，把第一个转到最后一个，最后一个转到第一个。</li>
+<li><code>arr.join()</code>在数组中每两个元素中加入一个字符串组成新的字符串<code>arr.join(&quot;&quot;)</code>就是什么都不加入。</li>
+</ol>
+<p>###计算一个整数的阶乘</p>
+<p><a href="http://www.jianshu.com/p/74374e8bb6b9" target="_blank" rel="external">这个之前写过了，在这里</a></p>
+<p>###检测给定的字符是否是回文</p>
+<p><a href="http://www.jianshu.com/p/2f0fb49adcf0" target="_blank" rel="external">这个之前也写过了，在这里</a></p>
+<p>###找到提供的句子中最长的单词，并计算它的长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function change(a,b) &#123;</div><div class="line">  if(a.length &gt; b.length) return -1;</div><div class="line">  return 1;</div><div class="line">&#125;</div><div class="line">function findLongestWord(str) &#123;</div><div class="line">  var arr = str.split(&quot; &quot;);</div><div class="line">  var newArr = arr.sort(change);</div><div class="line">  //return newArr.length;</div><div class="line">  return newArr[0].length;</div><div class="line">&#125;</div><div class="line"></div><div class="line">findLongestWord(&quot;The quick brown fox jumped over the lazy dog&quot;);</div></pre></td></tr></table></figure>
+<p>主要用到了sort排序，<a href="http://www.jianshu.com/p/579379146bfa" target="_blank" rel="external">详细在这里</a></p>
+<p>###确保字符串的每个单词首字母都大写，其余部分小写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function titleCase(str) &#123;</div><div class="line">  var newStr = str.toLowerCase();</div><div class="line">  var arr = newStr.split(&quot; &quot;);</div><div class="line">  for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">    var char = arr[i].charAt(0);</div><div class="line">    arr[i] = arr[i].replace(char,function rep(char) &#123;</div><div class="line">      return char.toUpperCase();</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">  var xstr = arr.join(&quot; &quot;);</div><div class="line">    return xstr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">titleCase(&quot;sHoRt AnD sToUt&quot;);</div></pre></td></tr></table></figure>
+<p>用到了<code>str.toLowerCase()</code>，<code>str.replace()</code>和<code>str.toUpperCase()</code></p>
+<p>思路大概是：字符串换成小写，转换成数组。遍历数组找到每个字符串的首字母（用<code>str.charAt()</code>）。然后用<code>str.replace()</code>把首字母替换为大写。在把数组转换为字符串输出。</p>
+<p><code>str.replace()</code>方法：<code>stringObject.replace(regexp/substr,replacement)</code>;regexp/substr为需要替换的对象，replacement为替换后的对象，可以为一个函数，比如文中用到的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr[i] = arr[i].replace(char,function rep(char) &#123;</div><div class="line">     return char.toUpperCase();</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
+<p>###返回数组中最大的数</p>
+<blockquote>
+<p>右边大数组中包含了4个小数组，分别找到每个小数组中的最大值，然后把它们串联起来，形成一个新数组。<br>largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]])应该返回[5,27,39,1001]</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function change(a,b)&#123;</div><div class="line">  if (a&gt;b) return -1;</div><div class="line">  return 1;</div><div class="line">&#125;</div><div class="line">function largestOfFour(arr) &#123;</div><div class="line">  // You can do this!</div><div class="line">  var maxx = [];</div><div class="line">  var maxNum = [];</div><div class="line">  for(var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">    maxx[i] =  arr[i].sort(change);</div><div class="line">    maxNum[i] = maxx[i][0];</div><div class="line">  &#125;</div><div class="line">  return maxNum;</div><div class="line">&#125;</div><div class="line"></div><div class="line">largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);</div></pre></td></tr></table></figure>
+<p>依然用到sort排序。</p>
+<p>思路：遍历数组，sort对数组排序，并传到新数组中对应的位置<code>maxx[i] =  arr[i].sort(change);</code>然后找到各个数组中最大的数传到另一个数组中<code>maxNum[i] = maxx[i][0];</code></p>
+<p>###检查一个字符串(str)是否以指定的字符串(target)结尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function confirmEnding(str, target) &#123;</div><div class="line">  var targetL = target.length;</div><div class="line">  var newStr = str.substring(str.length-targetL,str.length); </div><div class="line">  if (newStr == target) return true;</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">confirmEnding(&quot;He has to give me a new&quot;, &quot;name&quot;);</div></pre></td></tr></table></figure>
+<p>思路：截取字符串最后几位，检查是否等于给定的target</p>
+<p>###重要的事情说3遍！</p>
+<blockquote>
+<p>重复一个指定的字符串 num次，如果num是一个负数则返回一个空字符串。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function repeat(str, num) &#123;</div><div class="line">  // repeat after me</div><div class="line">  var newStr = str.split(&quot; &quot;);</div><div class="line">  if (num &lt; 0) return &quot;&quot;;</div><div class="line">  else &#123;</div><div class="line">    for (var i = 0; i &lt; num; i++) &#123;</div><div class="line">      newStr[i] = str;</div><div class="line">    &#125;</div><div class="line">    return newStr.join(&quot;&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">repeat(&quot;abc&quot;, 3);</div></pre></td></tr></table></figure>
+<p>思路：这个其实不难，就是不好想出来，新建一个数组，然后在i&lt;num的时候开始循环，新数组的[i]对应给定的str，这样num是多少，就循环了多少遍，新数组中就有多少个元素。</p>
+<p>###截断一个字符串！</p>
+<blockquote>
+<p>如果字符串的长度比指定的参数num长，则把多余的部分用…来表示。</p>
+<p>切记，插入到字符串尾部的三个点号也会计入字符串的长度。</p>
+<p>但是，如果指定的参数num小于或等于3，则添加的三个点号不会计入字符串的长度。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function truncate(str, num) &#123;</div><div class="line">  // Clear out that junk in your trunk</div><div class="line">  var strSub;</div><div class="line">  if (str.length &gt; num) &#123;</div><div class="line">    if(num &gt; 3) &#123;</div><div class="line">    strSub = str.substring(0,num-3);</div><div class="line">      return strSub+&quot;...&quot;;</div><div class="line">    &#125; else &#123;</div><div class="line">    strSub = str.substring(0,num);</div><div class="line">      return strSub+&quot;...&quot;;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return str;</div><div class="line">&#125;</div><div class="line"></div><div class="line">truncate(&quot;A-tisket a-tasket A green and yellow basket&quot;, 11);</div></pre></td></tr></table></figure>
+<p>主要用到了<code>str.substring(start,end)</code>,从start处开始截取，到end处截止。<br>难点在与如果指定的参数num小于或等于3，则添加的三个点号不会计入字符串的长度。<br>这个要写if..else来判断</p>
+<p>###把一个数组按照指定的数组大小分割成若干个数组块。</p>
+<blockquote>
+<p>chunk([1,2,3,4],2)=[[1,2],[3,4]];<br>chunk([1,2,3,4,5],2)=[[1,2],[3,4],[5]];</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function chunk(arr, size) &#123;</div><div class="line">  // Break it up.</div><div class="line">  var num1 = Math.floor(arr.length / size);</div><div class="line">  var num2 = arr.length % size;</div><div class="line">  var arr2 = [];</div><div class="line">  if (num2 === 0) &#123;</div><div class="line">  for (var i = 0; i &lt; num1; i++) &#123;</div><div class="line">    arr2[i] = arr.slice(i * size,size * (i + 1));</div><div class="line">    //return arr2;</div><div class="line">    &#125; </div><div class="line">  &#125;else  &#123;</div><div class="line">  for (var j = 0; j &lt;= num1; j++) &#123;</div><div class="line">    arr2[j] = arr.slice(j * size,size * (j + 1));</div><div class="line">    //return arr2;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return arr2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">chunk([0, 1, 2, 3, 4, 5], 4);</div></pre></td></tr></table></figure>
+<p>用到<code>arr.slice()</code>来切割数组。</p>
+<p>思路主要是：</p>
+<ol>
+<li>先计算出分成几大段并赋值给num1，再计算出分段后剩余的（用求余计算）并赋值给num2；新建一个数组arr2。</li>
+<li><p>开始判断，如果余数为0，也就是正好分段完没有剩余字符。此时进行遍历并储存切割后的字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; i &lt; num1; i++) &#123;</div><div class="line">    arr2[i] = arr.slice(i * size,size * (i + 1));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果余数不为0，进行另一种赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var j = 0; j &lt;= num1; j++) &#123;</div><div class="line">    arr2[j] = arr.slice(j * size,size * (j + 1));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>难点还是在于遍历的同时完成切割后字符的储存，之前一直想直接返回数组，结果只会返回第一个值。后来想了一个方法：新建一个数组，遍历的同时进行新数组第i个赋值，完美。</p>
+<p>###返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。</p>
+<blockquote>
+<p>slasher([1, 2, 3], 2)应该返回 [3].<br>slasher([“burgers”, “fries”, “shake”], 1)应该返回 [“fries”, “shake”].</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function slasher(arr, howMany) &#123;</div><div class="line">  // it doesn&apos;t always pay to be first</div><div class="line">  return arr.slice(howMany,arr.length);</div><div class="line">&#125;</div><div class="line"></div><div class="line">slasher([1, 2, 3], 2);</div></pre></td></tr></table></figure>
+<p>这个如果想到了还挺简单的,用<code>arr.clice()</code>,输入两个参数，一个起始位置，一个结束位置，就可以输出了。</p>
+<p>###如果数组第一个字符串元素包含了第二个字符串元素的所有字符，函数返回true。</p>
+<blockquote>
+<p>mutation([“Mary”, “Army”])应该返回 true.<br>mutation([“hello”, “neo”])应该返回 false.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function mutation(arr) &#123;</div><div class="line">  var rarr = [];</div><div class="line"> var str1 = arr[0].toLowerCase();</div><div class="line">  var str2 = arr[1].toLowerCase();</div><div class="line">  for (var i = 0; i &lt; str2.length; i++) &#123;</div><div class="line">    rarr[i] = str1.indexOf(str2[i]);</div><div class="line">  &#125;</div><div class="line">  var rstr = rarr.join(&quot;&quot;);</div><div class="line">  if (rstr.indexOf(&quot;-1&quot;) &gt;= 0) &#123;</div><div class="line">    return false;</div><div class="line">  &#125; return true;</div><div class="line">&#125;</div><div class="line"></div><div class="line">mutation([&quot;Mary&quot;, &quot;Army&quot;]);</div></pre></td></tr></table></figure>
+<p>思路：用<code>str.indexOf()</code>找到第二个字符串各个字符在第一个字符串中的位置（找不到为-1）并储存为一个新数组；然后对储存位置的数组进行判断，找到数组中-1（也就是不被字符串1包含的字符）的位置，如果&gt;=0，就意味着位置数组中确实存在值为-1的元素，也就是第二个字符串中有不被第一个字符串包含的字符。返回false.反之如果值为-1的元素在位置数组中的位置为-1，就证明不存在，也就是字符串2中的字符全能在字符串1中找到，此时返回true。</p>
+<p>###删除数组中的所有假值。</p>
+<blockquote>
+<p>在JavaScript中，假值有<code>false</code>、<code>null</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>undefined</code>和<code>NaN</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function bouncer(arr) &#123;</div><div class="line">  // Don&apos;t show a false ID to this bouncer.</div><div class="line">  function change(arr) &#123;</div><div class="line">    return !(arr === null || arr === false || arr === undefined || arr === 0 || arr === &quot;&quot; || arr !== arr);</div><div class="line">  &#125;</div><div class="line">  return arr.filter(change);</div><div class="line">&#125;</div><div class="line"></div><div class="line">bouncer([false, null, 0, NaN, undefined, &quot;&quot;]);</div></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/e2386d64d07b" target="_blank" rel="external">关于null,undefined,NaN的区别之前写过，点这里跳转</a></p>
+<p>主要用到了<code>arr.filter(callback)</code>，用来返回满足callback函数的值。</p>
+<p>###实现一个摧毁(destroyer)函数，第一个参数是待摧毁的数组，其余的参数是待摧毁的值。</p>
+<blockquote>
+<p>destroyer([1, 2, 3, 1, 2, 3], 2, 3)应该返回 [1, 1].</p>
+<p>destroyer([“tree”, “hamburger”, 53], “tree”, 53)应该返回 [“hamburger”].</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function destroyer(arr) &#123;</div><div class="line">  // Remove all the values</div><div class="line">  var arrDel = [];</div><div class="line">  for(var i =1; i&lt;arguments.length; i++) &#123;</div><div class="line">    arrDel.push(arguments[i]);</div><div class="line">  &#125;</div><div class="line">  return arr.filter(function(val) &#123;</div><div class="line">                    return arrDel.indexOf(val)&lt;0;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">destroyer([1, 2, 3, 1, 2, 3], 2, 3);</div></pre></td></tr></table></figure>
+<p>用到<code>arguments.object</code>:arguments 是一个类数组对象。代表传给一个function的参数列表。你可以传递任意数量的参数到该函数，然后该函数会将每个参数作为一个条目来创建一个列表。</p>
+<p>比如destroyer(arr)这个函数，只有一个参数，那么如何处理destroyer([1, 2, 3, 1, 2, 3], 2, 3);呢？<br>没错，[1, 2, 3, 1, 2, 3], 2, 3全部都是arguments这个类数组。可以理解为arguments=[[1, 2, 3, 1, 2, 3], 2, 3]</p>
+<p>但是arguments对象并不是一个真正的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Array" target="_blank" rel="external">Array
+</a>。它类似于数组，但没有数组所特有的属性和方法，除了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments/length" target="_blank" rel="external">length</a>。例如，它没有 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop" target="_blank" rel="external">pop</a> 方法。</p>
+<p>思路：新建一个储存被删除值的数组arrDel，开始对arguments进行遍历，注意val i = 1;因为不需要对第一个（也就是arr）进行遍历。</p>
+<p>然后把arguments各个元素push进arrDel.然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">return arr.filter(function(val) &#123;</div><div class="line">       return arrDel.indexOf(val)&lt;0;&#125;);</div></pre></td></tr></table></figure></p>
+<p>###先给数组排序，然后找到指定的值在数组的位置，最后返回位置对应的索引。</p>
+<blockquote>
+<p>where([1,2,3,4], 1.5)应该返回 1。因为1.5插入到组[1,2,3,4]后变成[1,1.5,2,3,4]，而1.5对应的索引值就是1。</p>
+<p>同理，where([20,3,5], 19) 应该返回 2。因为数组会先排序为 [3,5,20]，19插入到数组[3,5,20]后变成[3,5,19,20]，而19对应的索引值就是2。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function where(arr, num) &#123;</div><div class="line">  // Find my place in this sorted array.</div><div class="line">  var newArr = arr.concat(num);</div><div class="line">  function change(a,b) &#123;</div><div class="line">    if (b - a &gt;0) return -1;</div><div class="line">    return 1;</div><div class="line">  &#125;</div><div class="line">  return newArr.sort(change).indexOf(num);</div><div class="line">&#125;</div><div class="line"></div><div class="line">where([2, 20, 10], 19);</div></pre></td></tr></table></figure>
+<p>思路：用arr.concat拼接数组，然后利用sort排序，然后用indexOf返回索引值就可以了。</p>
+<p>###写一个<a href="http://www.baike.com/wiki/ROT13&amp;prd=so_1_doc" target="_blank" rel="external">ROT13</a>函数，实现输入加密字符串，输出解密字符串。</p>
+<blockquote>
+<p>下面我们来介绍风靡全球的凯撒密码Caesar cipher<br>，又叫移位密码。</p>
+<p>移位密码也就是密码中的字母会按照指定的数量来做移位。</p>
+<p>一个常见的案例就是<a href="http://www.baike.com/wiki/ROT13&amp;prd=so_1_doc" target="_blank" rel="external">ROT13</a>密码，字母会移位13个位置。由’A’ ↔ ‘N’, ‘B’ ↔ ‘O’，以此类推。</p>
+<p>写一个<a href="http://www.baike.com/wiki/ROT13&amp;prd=so_1_doc" target="_blank" rel="external">ROT13</a>函数，实现输入加密字符串，输出解密字符串。</p>
+<p>所有的字母都是大写，不要转化任何非字母形式的字符(例如：空格，标点符号)，遇到这些特殊字符，跳过它们。</p>
+<p>rot13(“SERR PBQR PNZC”)应该解码为 “FREE CODE CAMP”</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function rot13(str) &#123;</div><div class="line">  var newArr=[];</div><div class="line">  for(var i=0;i&lt;str.length;i++)&#123;</div><div class="line">    if(str.charCodeAt(i)&lt;65||str.charCodeAt(i)&gt;90)&#123;</div><div class="line">      newArr.push(str.charAt(i));</div><div class="line">     &#125;else if(str.charCodeAt(i)&gt;77)&#123;</div><div class="line">       newArr.push(String.fromCharCode(str.charCodeAt(i)-13));</div><div class="line">    &#125;else&#123;</div><div class="line">      newArr.push(String.fromCharCode(str.charCodeAt(i)+13));</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return newArr.join(&quot;&quot;);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"></div><div class="line"></div><div class="line">// Change the inputs below to test</div><div class="line"> rot13(&quot;SERR PBQR PNZC&quot;);</div></pre></td></tr></table></figure>
+<p>这个主要考察unicode编码。</p>
+<p><code>charCodeAt()</code>方法返回0到65535之间的整数，代表索引处字符的UTF-16编码单元（在Unicode编码单元表示一个单一的UTF-16编码单元的情况下，UTF-16编码单元匹配Unicode编码单元。否则，比如Unicode 编码单元 &gt; 0x10000 的情况下，只能匹配Unicode代理对的第一个编码单元）。如果你希望得到整点编码值，使用codePointAt()</p>
+<p>思路： </p>
+<ol>
+<li>26个字母的unicode码在65(A)与90(Z)之间,第13位M(77); </li>
+<li>将str通过.charCodeAt()转为unicode编码并放入新数组; </li>
+<li>其中非字母形式的字符直接放入.charAt(); </li>
+<li>后13位字母减去13后放入； </li>
+<li>前13位字母加上13后放入； </li>
+<li>通过.fromCharCode()转化为字母，将数组转化为字符串；</li>
+</ol>
+<p>###基础javascript算法就到这了，很多算法虽然写出来了，但是应该不是最优解，但是现在我还想不出来更好的解法。先这样吧，如有错误，欢迎指正。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;终于把FCC的基础javascript算法做完了，来总结一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>js字符串转数字</title>
