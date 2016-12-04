@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-30T15:01:22.118Z</updated>
+  <updated>2016-12-04T07:46:25.840Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>引用类型之Function类型</title>
+    <link href="http://yoursite.com/2016/12/04/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B9%8BFunction%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yoursite.com/2016/12/04/引用类型之Function类型/</id>
+    <published>2016-12-04T07:44:27.000Z</published>
+    <updated>2016-12-04T07:46:25.840Z</updated>
+    
+    <content type="html"><![CDATA[<p>对于面向对象编程的语言来说，对象是很重要的一个概念，而对于函数来说，每个函数实际上都是对象，每个函数都是Function类型的实例，而且与其他引用类型一样具有属性和方法。<br><a id="more"></a><br><strong>函数声明与函数表达式</strong></p>
+<p>通常有三种声明函数的方法</p>
+<ol>
+<li>使用函数声明语法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  function sum(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这也是最常用的方法</p>
+<ol>
+<li>使用函数表达式定义函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  var sum = function (num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可能会注意到<code>function</code>关键字后面没有函数名，这是因为使用函数表达式定义函数时，通过变量<code>sum</code>就可以引用函数</p>
+<ol>
+<li>使用Function构造函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var sum = new Function(&quot;num1&quot;, &quot;num2&quot;, &quot;return num1 + num2&quot;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>但是非常不推荐这种写法，因为这种语法会导致解析两次代码（第一次解析ECMAScript代码，第二次解析传入构造函数的参数）从而影响性能</p>
+<p><strong>关于变量提升</strong></p>
+<p>对于1，2两种声明函数的方法有什么不同呢？看下面这个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 使用函数声明创建函数</div><div class="line">console.log(sum(10,10));  //会打印出20</div><div class="line">function sum(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 使用函数表达式创建函数</div><div class="line">console.log(add(10,10)); //会报错</div><div class="line">var add = function(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>实际上，解析器在执行环境中加载数据时，解析器会率先读取函数声明，并使其在执行任何代码之前可用，而至于函数表达式，则必须等到解析器执行到它所在的代码行才会真正被解释执行。</p>
+<p><strong>函数内部属性</strong></p>
+<p>在函数内部，有两个特殊的对象：<code>arguments</code>和<code>this</code></p>
+<p><code>arguments</code>是一个类数组对象，包含着传入函数的所有参数，之前在基础算法的时候已经讲过。但是<code>arguments</code>还有一个名叫<code>callee</code>属性，该属性是一个指针，指向拥有<code>arguments</code>对象的函数。具体用法之前写过了，<a href="http://www.jianshu.com/p/74374e8bb6b9" target="_blank" rel="external">看这里</a></p>
+<p>另一个比较特殊的对象就是<code>this</code>了,关于<code>this</code>知乎上<a href="https://www.zhihu.com/people/zhihusucks/answers" target="_blank" rel="external">@方方老师</a>的<a href="https://zhuanlan.zhihu.com/p/23804247" target="_blank" rel="external">这篇文章</a>讲的特别好</p>
+<p><strong>函数的属性和方法</strong></p>
+<p>因为在ECMAScript中函数是对象，因此函数也有属性和方法。</p>
+<p>每个函数包含两个属性：<code>length</code>和<code>prototype</code></p>
+<p><code>length</code>表示函数接受的参数的个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function sayName(name) &#123;</div><div class="line">  console.log(name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sum(sum1, sum2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sayHi() &#123;</div><div class="line">  console.log(&quot;Hi!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(sayName.length);  //1</div><div class="line">console.log(sum.length);      //2</div><div class="line">console.log(sayHi.length);    //0</div></pre></td></tr></table></figure></p>
+<p>另一个属性<code>prototype</code>是保存引用类型所有实例方法的真正所在，比如<code>toString()</code>和<code>valueOf()</code>等方法都保存在<code>prototype</code>名下，<code>prototype</code>在实现继承时非常重要，下一篇我们再讲。</p>
+<p>每个函数都包含两个非继承来的方法：<code>apply()</code>和<code>call()</code></p>
+<p><code>apply()</code>和<code>call()</code>都是在特定的作用域中调用函数，等于设置函数体内<code>this</code>的值，他们的区别在于：<br><code>apply()</code>接受两个参数：一个是在其中运行函数的作用域，另一个是参数数组，既可以是<code>Array</code>实例，也可以是<code>arguements</code>对象。<br><code>call()</code>第一个参数和<code>apply()</code>一样，但是传递参数的时候，必须逐个例举出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function sum(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function callSum1(num1, num2) &#123;</div><div class="line">  return sum.apply(this, arguments);   //传入arguments字符串</div><div class="line">&#125;</div><div class="line"></div><div class="line">function callSum2(num1, num2) &#123;</div><div class="line">  return sum.apply(this, [num1,num2]);  //传入数组</div><div class="line">&#125;</div><div class="line"></div><div class="line">function callSum3(num1, num2) &#123;</div><div class="line">  return sum.call(this, num1, num2);   //使用call必须把参数列举出来</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(callSum1(10,10));   //20</div><div class="line">console.log(callSum2(10,10));   //20</div><div class="line">console.log(callSum3(10,10));   //20</div></pre></td></tr></table></figure>
+<p>既然<code>apply()</code>和<code>call()</code>的参数有作用域，那么是用来干什么的呢？看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">window.color = &quot;red&quot;;</div><div class="line">var 0 = &#123; color: &quot;blue&quot; &#125;;</div><div class="line"></div><div class="line">function sayColor() &#123;</div><div class="line">  console.log(this.color);</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayColor();                //red</div><div class="line">sayColor.call(this)        //red</div><div class="line">sayColor.call(window)      //red</div><div class="line">sayColor.call(o)           //blue</div></pre></td></tr></table></figure>
+<p>是不是<code>this</code>的值又懵了？如果懵了，就翻上去看方方老师那篇文章。<br>没错，<code>apply()</code>和<code>call()</code>的作用就是扩充函数的作用域</p>
+<p>大概就是这么多了，书上这一章的内容我反复看了好几遍才理解，所以学习哪有什么捷径，无他，唯手熟尔<br>那么，聪明的你，看完之后懂了没有？<br>下一篇准备讲原型</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于面向对象编程的语言来说，对象是很重要的一个概念，而对于函数来说，每个函数实际上都是对象，每个函数都是Function类型的实例，而且与其他引用类型一样具有属性和方法。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>基础javascript算法</title>

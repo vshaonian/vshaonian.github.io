@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>引用类型之Function类型 | 少年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对于面向对象编程的语言来说，对象是很重要的一个概念，而对于函数来说，每个函数实际上都是对象，每个函数都是Function类型的实例，而且与其他引用类型一样具有属性和方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="引用类型之Function类型">
+<meta property="og:url" content="http://yoursite.com/2016/12/04/引用类型之Function类型/index.html">
+<meta property="og:site_name" content="少年">
+<meta property="og:description" content="对于面向对象编程的语言来说，对象是很重要的一个概念，而对于函数来说，每个函数实际上都是对象，每个函数都是Function类型的实例，而且与其他引用类型一样具有属性和方法。">
+<meta property="og:updated_time" content="2016-12-04T07:46:25.840Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="引用类型之Function类型">
+<meta name="twitter:description" content="对于面向对象编程的语言来说，对象是很重要的一个概念，而对于函数来说，每个函数实际上都是对象，每个函数都是Function类型的实例，而且与其他引用类型一样具有属性和方法。">
+  
+    <link rel="alternative" href="/atom.xml" title="少年" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="https://avatars2.githubusercontent.com/u/18158468?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">少年</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">正直，纯洁，善良</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/vshaonian" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-yu-7-13" title="zhihu">zhihu</a>
+		        
+					<a class="mail" target="_blank" href="/sxyer@outlook.com" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">少年</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="https://avatars2.githubusercontent.com/u/18158468?v=3&amp;s=460" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">少年</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">正直，纯洁，善良</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/vshaonian" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-yu-7-13" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/sxyer@outlook.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-引用类型之Function类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      引用类型之Function类型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于面向对象编程的语言来说，对象是很重要的一个概念，而对于函数来说，每个函数实际上都是对象，每个函数都是Function类型的实例，而且与其他引用类型一样具有属性和方法。<br><a id="more"></a><br><strong>函数声明与函数表达式</strong></p>
+<p>通常有三种声明函数的方法</p>
+<ol>
+<li>使用函数声明语法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  function sum(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这也是最常用的方法</p>
+<ol>
+<li>使用函数表达式定义函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  var sum = function (num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可能会注意到<code>function</code>关键字后面没有函数名，这是因为使用函数表达式定义函数时，通过变量<code>sum</code>就可以引用函数</p>
+<ol>
+<li>使用Function构造函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var sum = new Function(&quot;num1&quot;, &quot;num2&quot;, &quot;return num1 + num2&quot;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>但是非常不推荐这种写法，因为这种语法会导致解析两次代码（第一次解析ECMAScript代码，第二次解析传入构造函数的参数）从而影响性能</p>
+<p><strong>关于变量提升</strong></p>
+<p>对于1，2两种声明函数的方法有什么不同呢？看下面这个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 使用函数声明创建函数</div><div class="line">console.log(sum(10,10));  //会打印出20</div><div class="line">function sum(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 使用函数表达式创建函数</div><div class="line">console.log(add(10,10)); //会报错</div><div class="line">var add = function(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>实际上，解析器在执行环境中加载数据时，解析器会率先读取函数声明，并使其在执行任何代码之前可用，而至于函数表达式，则必须等到解析器执行到它所在的代码行才会真正被解释执行。</p>
+<p><strong>函数内部属性</strong></p>
+<p>在函数内部，有两个特殊的对象：<code>arguments</code>和<code>this</code></p>
+<p><code>arguments</code>是一个类数组对象，包含着传入函数的所有参数，之前在基础算法的时候已经讲过。但是<code>arguments</code>还有一个名叫<code>callee</code>属性，该属性是一个指针，指向拥有<code>arguments</code>对象的函数。具体用法之前写过了，<a href="http://www.jianshu.com/p/74374e8bb6b9" target="_blank" rel="external">看这里</a></p>
+<p>另一个比较特殊的对象就是<code>this</code>了,关于<code>this</code>知乎上<a href="https://www.zhihu.com/people/zhihusucks/answers" target="_blank" rel="external">@方方老师</a>的<a href="https://zhuanlan.zhihu.com/p/23804247" target="_blank" rel="external">这篇文章</a>讲的特别好</p>
+<p><strong>函数的属性和方法</strong></p>
+<p>因为在ECMAScript中函数是对象，因此函数也有属性和方法。</p>
+<p>每个函数包含两个属性：<code>length</code>和<code>prototype</code></p>
+<p><code>length</code>表示函数接受的参数的个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function sayName(name) &#123;</div><div class="line">  console.log(name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sum(sum1, sum2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sayHi() &#123;</div><div class="line">  console.log(&quot;Hi!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(sayName.length);  //1</div><div class="line">console.log(sum.length);      //2</div><div class="line">console.log(sayHi.length);    //0</div></pre></td></tr></table></figure></p>
+<p>另一个属性<code>prototype</code>是保存引用类型所有实例方法的真正所在，比如<code>toString()</code>和<code>valueOf()</code>等方法都保存在<code>prototype</code>名下，<code>prototype</code>在实现继承时非常重要，下一篇我们再讲。</p>
+<p>每个函数都包含两个非继承来的方法：<code>apply()</code>和<code>call()</code></p>
+<p><code>apply()</code>和<code>call()</code>都是在特定的作用域中调用函数，等于设置函数体内<code>this</code>的值，他们的区别在于：<br><code>apply()</code>接受两个参数：一个是在其中运行函数的作用域，另一个是参数数组，既可以是<code>Array</code>实例，也可以是<code>arguements</code>对象。<br><code>call()</code>第一个参数和<code>apply()</code>一样，但是传递参数的时候，必须逐个例举出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function sum(num1, num2) &#123;</div><div class="line">  return num1 + num2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function callSum1(num1, num2) &#123;</div><div class="line">  return sum.apply(this, arguments);   //传入arguments字符串</div><div class="line">&#125;</div><div class="line"></div><div class="line">function callSum2(num1, num2) &#123;</div><div class="line">  return sum.apply(this, [num1,num2]);  //传入数组</div><div class="line">&#125;</div><div class="line"></div><div class="line">function callSum3(num1, num2) &#123;</div><div class="line">  return sum.call(this, num1, num2);   //使用call必须把参数列举出来</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(callSum1(10,10));   //20</div><div class="line">console.log(callSum2(10,10));   //20</div><div class="line">console.log(callSum3(10,10));   //20</div></pre></td></tr></table></figure>
+<p>既然<code>apply()</code>和<code>call()</code>的参数有作用域，那么是用来干什么的呢？看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">window.color = &quot;red&quot;;</div><div class="line">var 0 = &#123; color: &quot;blue&quot; &#125;;</div><div class="line"></div><div class="line">function sayColor() &#123;</div><div class="line">  console.log(this.color);</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayColor();                //red</div><div class="line">sayColor.call(this)        //red</div><div class="line">sayColor.call(window)      //red</div><div class="line">sayColor.call(o)           //blue</div></pre></td></tr></table></figure>
+<p>是不是<code>this</code>的值又懵了？如果懵了，就翻上去看方方老师那篇文章。<br>没错，<code>apply()</code>和<code>call()</code>的作用就是扩充函数的作用域</p>
+<p>大概就是这么多了，书上这一章的内容我反复看了好几遍才理解，所以学习哪有什么捷径，无他，唯手熟尔<br>那么，聪明的你，看完之后懂了没有？<br>下一篇准备讲原型</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/04/引用类型之Function类型/" class="archive-article-date">
+  	<time datetime="2016-12-04T07:44:27.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/30/基础javascript算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基础javascript算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="引用类型之Function类型" data-title="引用类型之Function类型" data-url="http://yoursite.com/2016/12/04/引用类型之Function类型/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 少年
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Demo/" style="font-size: 13.33px;">Demo</a> <a href="/tags/FCC/" style="font-size: 16.67px;">FCC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/cbad7dd16f6d/latest_articles">我的简书</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sunxiaoyu233.cn">我的网站</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">努力&lt;br&gt;&lt;br&gt;希望能成为一名前端工程师&lt;br&gt;加油</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
