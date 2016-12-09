@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-04T07:46:25.840Z</updated>
+  <updated>2016-12-09T06:11:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/12/04/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B9%8BFunction%E7%B1%BB%E5%9E%8B/"/>
     <id>http://yoursite.com/2016/12/04/引用类型之Function类型/</id>
     <published>2016-12-04T07:44:27.000Z</published>
-    <updated>2016-12-04T07:46:25.840Z</updated>
+    <updated>2016-12-09T06:11:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>对于面向对象编程的语言来说，对象是很重要的一个概念，而对于函数来说，每个函数实际上都是对象，每个函数都是Function类型的实例，而且与其他引用类型一样具有属性和方法。<br><a id="more"></a><br><strong>函数声明与函数表达式</strong></p>
 <p>通常有三种声明函数的方法</p>
@@ -67,9 +67,9 @@
     </summary>
     
     
-      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
-    
       <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
@@ -216,9 +216,9 @@
     </summary>
     
     
-      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
-    
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
     
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
