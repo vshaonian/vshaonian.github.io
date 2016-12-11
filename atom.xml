@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-09T06:16:14.246Z</updated>
+  <updated>2016-12-11T16:13:10.543Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写一个番茄钟（遇到的坑）</title>
+    <link href="http://yoursite.com/2016/12/12/%E5%86%99%E4%B8%80%E4%B8%AA%E7%95%AA%E8%8C%84%E9%92%9F%EF%BC%88%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/12/12/写一个番茄钟（遇到的坑）/</id>
+    <published>2016-12-11T16:00:31.000Z</published>
+    <updated>2016-12-11T16:13:10.543Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3259626-dbc2d7760ac74666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="大概长这样"></p>
+<p><a href="http://sunxiaoyu233.cn/FCC/timer.html" target="_blank" rel="external">请戳这里试用</a></p>
+<a id="more"></a>
+<p><strong>大致功能：</strong><br>设置好学习时间和休息时间，点击开始倒计时。</p>
+<p>同时背景颜色区域逐渐变高直至倒计时结束时充满整个区域。</p>
+<p>然后进入休息时间，开始倒计时。</p>
+<p>注意在倒计时的时候改变时间按钮是不可用的，点击倒计时暂停后可以更改时间。</p>
+<p><strong>大致思路</strong></p>
+<p>很好想，就是个倒计时嘛。再加上背景高度变化，然而实际写起来有很多坑</p>
+<p><strong>遇到的坑</strong></p>
+<p> 倒计时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function showTime() &#123;</div><div class="line">  secs -= 1;  //时间递减（已转换为秒钟）</div><div class="line">  var h = Math.floor(secs / 3600);  //小时</div><div class="line">  var m = Math.floor(secs % 3600 / 60);  //分钟</div><div class="line">  var s = Math.floor(secs % 3600 % 60);  //秒钟</div><div class="line">  return (</div><div class="line">	(h &gt; 0 ? h + &quot;:&quot; + (m &lt; 10 ? &quot;0&quot; : &quot;&quot;) : &quot;&quot;) + m + &quot;:&quot; + (s &lt; 10 ? &quot;0&quot; : &quot;&quot;) + s</div><div class="line">  );</div><div class="line">  var setTime = setTimeout(showTime, 1000);</div><div class="line">	if (secs &lt; 0) &#123;</div><div class="line">		clearInterval(setTime); //倒计时完毕清除计数器</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>把得到的时间转换成毫秒，再去操作。</p>
+<p>大概就是这样写，其实不难想，关于倒计时更多的东西建议去看<a href="https://github.com/gomeplusFED/blog/blob/master/2016-04/do-you-really-understand-how-to-write-a-countdown-by-javascript.md" target="_blank" rel="external">这篇文章</a></p>
+<p>写一个学习时间的倒计时，然后倒计时为0时，清除倒计时，并运行休息倒计时。</p>
+<p><strong>背景高度的变化</strong></p>
+<p>css里使用绝对定位，并且设置<code>bottom</code>为<code>0</code>，再根据时间动态改变高度就可以达到效果了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var fillLength = 1 - (secs / (sltime.innerHTML * 60)); //获取剩余时间与总时间的比值</div><div class="line">fill.style.height = fillLength * 300 + &quot;px&quot;; //根据比值设置高度</div></pre></td></tr></table></figure>
+<p><strong>改变时间按钮的控制</strong></p>
+<p>当倒计时运行的时候，按钮是不可点击的，这里需要记录按钮是否被点击，我的做法是建一个全局变量，并根据按钮状态设置<code>true or false</code>，点击一次按钮改变一次值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var stopTime = false //初始化全局变量</div><div class="line">clock.onclick = function ifStop() &#123;</div><div class="line">	if (stopTime) &#123;</div><div class="line">		stopTime = false; //点击改变按钮状态</div><div class="line">	&#125; else &#123;</div><div class="line">		stopTime = true;</div><div class="line">		if (timeName.innerHTML == &quot;休息一下吧&quot;) &#123;  </div><div class="line">			firstToHms();//运行倒计时</div><div class="line">		&#125; else &#123;</div><div class="line">			secondsToHms();//运行倒计时</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>然后呢我就给改变时间函数加判断条件，只有满足条件才能继续执行，结果第一次满足条件之后后面一直就可以运行了。。我的理解是函数被调用之后，运行完并没有销毁，下次再触发还会继续运行。那判断条件不是没用了吗。于是我又写了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setInterval(changeTime,1000);</div></pre></td></tr></table></figure>
+<p>每隔一秒钟去判断一次是否满足条件。。。手动监听按钮的状态，也是没谁了</p>
+<p>大致就是这么多，代码放在<a href="https://github.com/vshaonian/fcc/tree/master/pomodoro" target="_blank" rel="external">Github</a>了，写的非常乱。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3259626-dbc2d7760ac74666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;大概长这样&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://sunxiaoyu233.cn/FCC/timer.html&quot;&gt;请戳这里试用&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="Demo" scheme="http://yoursite.com/tags/Demo/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
+    
+  </entry>
   
   <entry>
     <title>引用类型之Function类型</title>
@@ -67,9 +117,9 @@
     </summary>
     
     
-      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -314,9 +364,9 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
-    
       <category term="Demo" scheme="http://yoursite.com/tags/Demo/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
     
   </entry>
   
@@ -354,9 +404,9 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
-    
       <category term="Demo" scheme="http://yoursite.com/tags/Demo/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
     
   </entry>
   
