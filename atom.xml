@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-11T16:15:27.059Z</updated>
+  <updated>2016-12-19T15:46:05.231Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过案例学习正则表达式</title>
+    <link href="http://yoursite.com/2016/12/19/%E9%80%9A%E8%BF%87%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://yoursite.com/2016/12/19/通过案例学习正则表达式/</id>
+    <published>2016-12-19T15:44:36.000Z</published>
+    <updated>2016-12-19T15:46:05.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们知道js是支持正则表达式的，用正则表达式来验证文本非常方便，但是初学者却非常难懂，最近碰到几个要用正则的地方，实在是逃不过了就去学了学，发现边写边学其实也并不是太难。下面通过一个案例来学习</p>
+<p>ps:安利两个网站<a href="https://regexper.com/" target="_blank" rel="external">正则可视化</a>   <a href="http://www.regexr.com/" target="_blank" rel="external">正则检测</a> 下面讲用法<br><a id="more"></a><br><strong>先看需求：匹配美国电话号码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//正确格式</div><div class="line">555-555-5555</div><div class="line">(555)555-5555</div><div class="line">(555) 555-5555</div><div class="line">555 555 5555</div><div class="line">5555555555</div><div class="line">1 555 555 5555</div></pre></td></tr></table></figure></p>
+<p>首先会想到匹配数字，发现正则<strong>数字可以用<code>\d</code>表示</strong>，那么<code>\d\d\d-\d\d\d-\d\d\d\d</code>是不是可以匹配第一种类型呢，来用<a href="http://www.regexr.com/" target="_blank" rel="external">这个网站</a>检测一下，可以看到第一个确实被匹配到了，后面<strong><code>/g</code>是全文匹配</strong><br><img src="http://upload-images.jianshu.io/upload_images/3259626-aedccaa82f493368.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>但是缺点显而易见，重复的怎么简写呢？<strong>原来<code>{n}</code>可以表示重复次数</strong>，那么改一下<br><img src="http://upload-images.jianshu.io/upload_images/3259626-2845940e98946d19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Bingo!,那么接下来注意到第一个，第四个是不是比较相同呢？空格或者横线，那么怎么表示或者关系呢？来看看这个,框起来的是更改的地方</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-63117c653ee256f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>没错<code>[]</code>表示或者的关系</strong>，<strong><code>\s</code>表示空格</strong>。来用<a href="https://regexper.com/" target="_blank" rel="external">可视化</a>看一下<br><img src="http://upload-images.jianshu.io/upload_images/3259626-ee541d7e5c1635eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>意思就是3个数字，接着匹配空格或则横线，再3个数字，再空格或则横线，最后4个数字，这样应该很好理解了</p>
+<p>可能会注意到<code>222 555 555 5555</code>这样不符合预期的也匹配到了，原来我们是想从头开始验证，那么可以这样做</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-cad44a4cc5daf8c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>用<code>^</code>表示从头开始匹配</strong>，注意到后面加了<code>/gm</code>,因为加了从头匹配的话，回车换行下一行并不会被认为新的开始，<strong>所以<code>/m</code>表示多行匹配</strong><br>然后看<code>5555555555</code>空格和横线也可以不要，那么意思就是空格或横线可以出现或者不出现，那么可以这样改一下<br><img src="http://upload-images.jianshu.io/upload_images/3259626-f5bbb90b31c4bf82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>注意我<strong>加了一个<code>?</code>，它表示最多出现一次（可以是0次）</strong>这样就可以匹配全是数字这样的情况了，举一反三，那么开始的区号<code>1 555 555 5555</code>中的1和空格是不是也可以这样表示呢？<br><img src="http://upload-images.jianshu.io/upload_images/3259626-ea3c20edd00a77d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>注意我<strong>用<code>()</code>括起来了，它表示一组</strong><br>接下来处理括号，既然也是可有可无，也用<code>?</code>表示算了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-c4b8ca6425fb6cb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>注意框起来的地方我写的是<code>\(</code>和<code>\)</code>这是因为<strong>要对特殊字符进行转义</strong>，学过js一定对转义不陌生，这里就不细讲了<br>到这里就完了吗？不不不，还是太年轻，来看看这种情况</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-32e863d833e2956a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>我们写的是括号两边都是最多出现一次，并没有要求同时出现或者同时不出现，这就面临着只出现一半也会通过匹配的情况。。再改一下</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-381f650af5dea50b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这好像改的有点多。。</p>
+<p>分步讲，先看前面由<code>(1\s)?</code>改成了<code>1?\s?</code>因为没改之前(1\s)是一组至多出现一次，所以1单独出现的时候也会出现匹配失败，所以还是分开写了</p>
+<p>再看第二个这一坨，放到可视化里面看</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-a79bb5b341e84c56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>两组之间的或者关系可以用<code>()|()</code>表示</strong></p>
+<p>最后一步，我<strong>加了<code>$</code>来表示结尾，停止匹配</strong>，不然的话<code>555-555-5555555</code>也是会被匹配成功的</p>
+<p>大致就是这么多了，最后来完整看一遍代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^1?\s?((\(\d&#123;3&#125;\))|(\d&#123;3&#125;))[\s-]?\d&#123;3&#125;[\s-]?\d&#123;4&#125;$/gm</div></pre></td></tr></table></figure></p>
+<p>放到可视化里面</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-2e48253a56c9868a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>常用的正则方法还有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[a-z]    //匹配a到z任意字符</div><div class="line">.    //除回车换行外任意字符</div><div class="line">+//最少出现一次</div><div class="line">\d//数字</div><div class="line">\D//非数字</div><div class="line">\s//空格</div><div class="line">\S//非空格</div><div class="line">\w//单词字符</div><div class="line">\W//非单词字符</div><div class="line">&#123;n&#125;//出现n次</div><div class="line">&#123;n,m&#125;//出现n到m次</div><div class="line">&#123;n,&#125;//至少出现n次</div><div class="line">\b//单词边界</div><div class="line">\B//非单词边界</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们知道js是支持正则表达式的，用正则表达式来验证文本非常方便，但是初学者却非常难懂，最近碰到几个要用正则的地方，实在是逃不过了就去学了学，发现边写边学其实也并不是太难。下面通过一个案例来学习&lt;/p&gt;
+&lt;p&gt;ps:安利两个网站&lt;a href=&quot;https://regexper.com/&quot;&gt;正则可视化&lt;/a&gt;   &lt;a href=&quot;http://www.regexr.com/&quot;&gt;正则检测&lt;/a&gt; 下面讲用法&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>写一个番茄钟（遇到的坑）</title>
@@ -60,9 +103,9 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
-    
       <category term="Demo" scheme="http://yoursite.com/tags/Demo/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
     
   </entry>
   
@@ -365,9 +408,9 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
-    
       <category term="Demo" scheme="http://yoursite.com/tags/Demo/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
     
   </entry>
   
@@ -405,9 +448,9 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
-    
       <category term="Demo" scheme="http://yoursite.com/tags/Demo/"/>
+    
+      <category term="FCC" scheme="http://yoursite.com/tags/FCC/"/>
     
   </entry>
   
