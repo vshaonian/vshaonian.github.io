@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>纯原生JS实现H5小游戏 | 少年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="试玩地址，请使用手机打开代码放在了github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯原生JS实现H5小游戏">
+<meta property="og:url" content="http://yoursite.com/2017/02/27/纯原生JS实现H5小游戏/index.html">
+<meta property="og:site_name" content="少年">
+<meta property="og:description" content="试玩地址，请使用手机打开代码放在了github">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-568f02522f39be67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-add40ba9a6dbfe6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-cf43e8fed3e328ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-27T13:12:25.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纯原生JS实现H5小游戏">
+<meta name="twitter:description" content="试玩地址，请使用手机打开代码放在了github">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3259626-568f02522f39be67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="少年" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="https://avatars2.githubusercontent.com/u/18158468?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">少年</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">正直，纯洁，善良</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/vshaonian" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-yu-7-13" title="zhihu">zhihu</a>
+		        
+					<a class="mail" target="_blank" href="/sxyer@outlook.com" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">少年</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="https://avatars2.githubusercontent.com/u/18158468?v=3&amp;s=460" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">少年</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">正直，纯洁，善良</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/vshaonian" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-xiao-yu-7-13" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/sxyer@outlook.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-纯原生JS实现H5小游戏" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      纯原生JS实现H5小游戏
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><a href="http://sunxiaoyu233.cn/jstask/task2-1.html" target="_blank" rel="external">试玩地址，请使用手机打开</a></strong><br><strong>代码放在了<a href="https://github.com/vshaonian/killgame" target="_blank" rel="external">github</a></strong></p>
+<a id="more"></a>
+<blockquote>
+<p><strong>杀人游戏流程</strong><br>2-1:冷启动界面<br>2-2：版本选择（其实只有一个版本）<br>2-3:设置玩家人数<br>3:身份查看页<br>4-1:法官查看页<br>4-2:显示天数<br>4-3:杀人页<br>4-4:黑夜解密<br>4-5:投票页<br>4-6:结果页<br>设置玩家人数,可满足6-18人游戏。设置完成之后，依次查看自己的身份，不要泄露给他人。然后法官查看身份，宣布开始游戏。<br>晚上，杀手杀人。白天公布被杀玩家，被杀的玩家发言，全体讨论后投票。<br>当水民全部死亡，杀手获得胜利，反之杀手全部死亡，水民获胜。</p>
+</blockquote>
+<p><strong>篇幅有限，这里我只说一下实现的最主要的地方</strong></p>
+<p><strong>1. ​localStorage</strong><br>关于localStorage与Cookie的与别:<br>Cookie主要用来保存登陆信息，大小被限制在4KB左右<br>localStorage即本地储存，是HTML5标准新加入的技术。大小通常为5M左右，兼容IE8及以上浏览器<br>用法：</p>
+<ol>
+<li>写入:<code>localStorage.str = &quot;Hello world!&quot;</code>或者<code>localStorage.setItem(&quot;str&quot;,&quot;Hello World!&quot;)</code></li>
+<li>读取：<code>var nStr = localStorage.str;</code>或者<code>var nStr = localStorage.getItem(&quot;str&quot;);</code></li>
+<li>localStorage是一个对象，所以有长度，可遍历<br>localStorage注意事项：<br>使用localStorage储存在本地均为字符串，比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">localStorage.num = 3;</div><div class="line">console.log(typeof localStorage.num); //string</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>所以取本地储存中的值的时候，需要类型转换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var num = JSON.parse(localStorage.num);</div><div class="line">console.log(typeof num); //number</div></pre></td></tr></table></figure></p>
+<p>对数组和对象要在储存前将其转换为JSON字符串才能保证取出来的还是原来的类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3];</div><div class="line">localStorage.arr = JSON.stringify(arr); //转换为JSON字符串</div><div class="line">var nStr = JSON.parse(localStorage.arr);</div><div class="line">console.log(typeof nStr); //object</div></pre></td></tr></table></figure></p>
+<p><strong>2. DOM操作</strong><br>一些基本的DOM操作，比如这里向HTML追加元素</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-568f02522f39be67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="追加元素"><br>采用的方法就是分别对杀手人数和水民人数进行遍历，进行以下操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var parent = document.getElementById(&quot;xx&quot;); //找到父元素</div><div class="line">var span = document.creatElement(&quot;span&quot;);//穿件标签</div><div class="line">span.innerHTML = &quot;xxxxx&quot;;//标签内容</div><div class="line">parent.appendChild(span);//向父元素追加</div></pre></td></tr></table></figure></p>
+<p>还有比如更改节点属性，在判断是否胜利的时候，如果达到胜利条件的话，就要更改<code>a</code>标签的<code>href</code>属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.setAttribute(name,value);</div></pre></td></tr></table></figure></p>
+<p><strong>3. 计时器</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-add40ba9a6dbfe6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计时器"><br>主要思路是：<br>在每天开始的时候，使用<code>new  Date()</code>获取当前的时间，然后存到localStorage里面，在每天结束的时候，再获取一个当前时间，并把localStorage里的时间取出来，相减，得到的就是这一天用的时间。<br>在每天开始时的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">btn.addEventListener(&quot;click&quot;,function () &#123;</div><div class="line">    var time = new Date();</div><div class="line">    localStorage.time = time;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>每天结束时的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">btn.addEventListener(&quot;click&quot;,function () &#123;</div><div class="line">        var time = new Date() - new Date(localStorage.time);</div><div class="line">        var name = &quot;time&quot; + (deadPlayer.length / 2);//根据死亡了几个玩家来判断是第几天，分配localStorage的名字</div><div class="line">        localStorage.setItem(name,time);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<p>结果就是这样的</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-cf43e8fed3e328ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="储存的时间"><br>还有一点</p>
+<p>我们是在每天结束的时候相减得到该天的时间的，那如果这天只过了一半就获胜了呢？最后一天的时间就没了，所以在达到胜利条件的时候我们需要再储存一次最后一天的耗时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if(aliveWaters === 0 || aliveKillers === 0) &#123;</div><div class="line">     //修复计时BUG</div><div class="line">     var lastTime = new Date() - new Date(localStorage.time);</div><div class="line">     localStorage.lastTime = lastTime;</div><div class="line">     btn.parentNode.setAttribute(&quot;href&quot;, &quot;task4-6.html&quot;);</div><div class="line"> &#125; else &#123;</div><div class="line">     btn.parentNode.setAttribute(&quot;href&quot;, &quot;task4-4.html&quot;)</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>如果活着的杀手或者活着的水民人数为0，就满足获胜条件，就立刻获取时间然后相减，因为不知道是第几天，所以就干脆命名为lastTime</p>
+<p>我们得到了每天的时间，但是是存在本地储存里的，我们要取出来，之前说<code>localStorage</code>又长度，可遍历，这里就要对<code>localStorage</code>进行遍历。通过localStorage.getItem(name)来获取对应的值</p>
+<p>因为我们在localStorage里存了很多东西，比如活着的人数，死亡玩家的数组等等，我们只想要<code>name</code>为<code>time*</code>这种格式的，所以我们验证<code>name</code>前4个字符为<code>name</code>的取出来存到数组里待用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//获取储存在本地的时间</div><div class="line">var timeArr = [];</div><div class="line">for(var i = 0; i &lt; localStorage.length; i++) &#123;</div><div class="line">    if(localStorage.key(i).substring(0,4) === &quot;time&quot;) &#123;</div><div class="line">        var getValue = localStorage.getItem(localStorage.key(i));</div><div class="line">        timeArr.push(Math.floor(parseInt(getValue) / 1000));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//因为存的还有time这个值，前面讲了它是用来获取当时的时间的，它的前4位也满足，所以也给取出来了，但是它是没用的，所以给他删除</div><div class="line">timeArr.shift();</div><div class="line"></div><div class="line">//修复计时bug</div><div class="line">var lastTime = parseInt(localStorage.lastTime);</div><div class="line">timeArr.push(Math.floor(lastTime / 1000));</div></pre></td></tr></table></figure></p>
+<p>然后关于时间的格式，经过上面的处理，我们得到了单位为秒的数组，但是我们不能直接把秒输出到HMTL里，我们应该输出为<code>xx小时xx分钟xx秒</code>这样的格式，还牵扯到补0的问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//把秒转化为标准时间</div><div class="line">function time(s) &#123;</div><div class="line">    var hours = Math.floor(s / 3600);</div><div class="line">    var minutes = Math.floor(s % 3600 / 60);</div><div class="line">    var seconds = Math.floor(s % 3600 % 60);</div><div class="line">    </div><div class="line">    return (hours &gt; 0 ? hours + &quot;小时&quot; + (minutes &lt; 10 ? &quot;0&quot; : &quot;&quot;) : &quot;&quot;) + (minutes &gt; 0 ? minutes + &quot;分钟&quot; +</div><div class="line">            (seconds &lt; 10 &amp;&amp; seconds &gt; 0 ? &quot;0&quot; : &quot;&quot;): &quot;&quot;)  + (seconds &gt; 0 ? seconds + &quot;秒&quot; : &quot;&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>关于<code>return</code>那一大块，其实就是一个条件操作符，相当于<code>if(){}else{}</code><br>比如比较大小，如果num1&gt;num2就把num1赋值给结果，否则就赋值num2。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var max = (num1 &gt; num2) ? num1 : num2;</div></pre></td></tr></table></figure></p>
+<p><strong>4. 点击事件</strong><br>onclick 与 addEventListener的区别：<br><code>addEventListener</code>是DOM2级事件处理程序，支持IE9以上，一个事件可以绑定多个函数，默认是false，冒泡阶段触发<br><code>onclick</code>是DOM0级事件处理程序，冒泡阶段触发</p>
+<p>比如一个使方框变色的函数可以这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; liNum.length; i++) &#123;</div><div class="line">    liNum[i].onclick = function () &#123;</div><div class="line">        this.style.borderColor = &quot;red&quot;;//注意这里要用this而不能用liNum[i]，涉及到闭包，后面会讲</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>为各个方框添加了点击事件之后，点击变色之后，再点击另一个，问题出现了。第二个变色了，但是第一个并没有变回去。我们的本意并不是这样的。。<br>解决办法就是，先定义一个临时变量，让它指向一个没有用的DOM节点（不指定节点的话接下来会报错）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var temp = document.getElementById(&quot;fix&quot;);</div><div class="line">btn.addEventListener(&quot;click&quot;,function()&#123;</div><div class="line">    temp.style.borderColor = &quot;#fff&quot;;</div><div class="line">    temp = this;</div><div class="line">    temp.style.borderColor = &quot;red&quot;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>比如第一次我们点击了第一个li，此时<code>temp</code>等于id为fix的元素，使它边框变为白色，然后把第一个li赋值给<code>temp</code>，然后使<code>temp</code>（也就是第一个li）边框变红，然后第二次点击的时候，此时<code>temp</code>是等于第一个li的，我们会先把上次点击的li（也就是第一个）变回原来的颜色，然后把这次点击的li赋值给<code>temp</code>，继续变色。</p>
+<p>这就完成了每次变色之前把上次点击的恢复颜色的效果，其实就是用一个中间值记录上次点击的数据</p>
+<p>接下来讲刚刚说的闭包</p>
+<p>比如我们有这样一个DOM结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div4&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div5&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div6&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div7&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div8&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;div9&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>和这样一段js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var count = document.getElementsByTagName(&quot;div&quot;);</div><div class="line"></div><div class="line">for(var i = 0; i &lt; count.length; i++) &#123;</div><div class="line">	count[i].onclick = function () &#123;</div><div class="line">		console.log(i);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果并不是想象中那样每次点击输出对应的 i 。而是无论点击哪个，都会输出 9 。可以自己试一下</p>
+<p>那为什么是这样呢。主要就是闭包+js没有块级作用域。每次迭代，就会形成一个闭包，<code>onclick</code>函数会有一个对 i 值的引用，但是，由于没有块作用域，所以这个i是全局作用域中的，也就是这几个函数所引用的i是在同一个作用域中，当然也就只有一个值</p>
+<p>那么怎么解决呢？  有两种方法</p>
+<p>第一种：使用ES的<code>let</code>语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(let i = 0; i &lt; count.length; i++) &#123;</div><div class="line">	count[i].onclick = function () &#123;</div><div class="line">		console.log(i);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为<code>let</code>会产生一个块级作用域，每次迭代都会产生一个块级作用域，里面有一个i，每个块级作用域互不影响。这样每次调用点击函数，就会访问对应作用域中的i，就好了</p>
+<p>当然如果不想用ES6，我们还有第二种方法<br>第二种：使用立即执行函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; count.length; i++) &#123;</div><div class="line"></div><div class="line">	(function (i) &#123;</div><div class="line">		count[i].onclick = function()&#123;</div><div class="line">			console.log(i);</div><div class="line">		&#125;</div><div class="line">	&#125;)(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>既然原因是没有块级作用域，那我们就手动模拟。每次迭代都会有一个立即执行函数，立即执行函数会创建一个函数作用域，我们把i作为参数传递进去，这样每个作用域也会保存一个i值</p>
+<p>点击事件的最后<br>验证玩家身份和储存死亡玩家</p>
+<p>杀手不能杀死杀死，不能杀死（投票给）已经死亡的玩家，这就需要我们在点击事件添加验证</p>
+<p>我们在点击时，可以通过节点来获取到玩家身份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var deadNum = parseInt(this.lastChild.firstChild.nodeValue);</div><div class="line">if(deadArr.indexOf(deadNum) &gt;= 0) &#123;</div><div class="line">    alert(&quot;该玩家已死&quot;)</div><div class="line">&#125; else if(this.firstChild.firstChild.nodeValue === &quot;杀手&quot;) &#123;</div><div class="line">    alert(&quot;杀手不能杀死杀手！&quot;)</div><div class="line">&#125; else &#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>记录死亡玩家：</p>
+<p>点击确定按钮之后，该玩家被杀死，记录被杀的玩家编号，并push进死亡玩家数组。<br>同时检查死亡玩家的身份，将相应（杀手或水民）的人数 - 1 。同时判断是否满足胜利条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">btn.addEventListener(&quot;click&quot;,function () &#123;</div><div class="line">        if(JSON.parse(localStorage.deadPlayerNum) === 0) &#123;</div><div class="line">            alert(&quot;请选择一名玩家&quot;);</div><div class="line">        &#125; else &#123;</div><div class="line">            //点击按钮将死亡玩家存入数组</div><div class="line">            deadArr.push(JSON.parse(localStorage.deadPlayerNum));</div><div class="line">            localStorage.deadPlayerArr = JSON.stringify(deadArr);</div><div class="line">          </div><div class="line">            //输赢判断</div><div class="line"></div><div class="line">            switch (newPlayer[parseInt(localStorage.deadPlayerNum) - 1]) &#123;</div><div class="line">                case &quot;杀手&quot;:</div><div class="line">                    aliveKillers = parseInt(localStorage.aliveKillers);</div><div class="line">                    aliveKillers--;</div><div class="line">                    localStorage.aliveKillers = aliveKillers;</div><div class="line">                    break;</div><div class="line">                case &quot;水民&quot;:</div><div class="line">                    aliveWaters = parseInt(localStorage.aliveWaters);</div><div class="line">                    aliveWaters--;</div><div class="line">                    localStorage.aliveWaters = aliveWaters;</div><div class="line">                    break;</div><div class="line">            &#125;</div><div class="line">            if(aliveWaters === 0 || aliveKillers === 0) &#123;</div><div class="line">                //修复计时BUG</div><div class="line">                var lastTime = new Date() - new Date(localStorage.time);</div><div class="line">                localStorage.lastTime = lastTime;</div><div class="line">                btn.parentNode.setAttribute(&quot;href&quot;, &quot;task4-6.html&quot;);</div><div class="line">            &#125; else &#123;</div><div class="line">                btn.parentNode.setAttribute(&quot;href&quot;, &quot;task4-4.html&quot;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>大致就是这么多，没有从头开始讲所以可能不太好懂，但是一个完整的游戏也不可能把代码全部拿出来，感兴趣的可以看我的github或者与我讨论。</p>
+<p>大概就是这么多，如有纰漏，请指正</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/纯原生JS实现H5小游戏/" class="archive-article-date">
+  	<time datetime="2017-02-27T13:09:53.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/19/通过案例学习正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">通过案例学习正则表达式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="纯原生JS实现H5小游戏" data-title="纯原生JS实现H5小游戏" data-url="http://yoursite.com/2017/02/27/纯原生JS实现H5小游戏/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 少年
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Demo/" style="font-size: 13.33px;">Demo</a> <a href="/tags/FCC/" style="font-size: 16.67px;">FCC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.daraw.cn/">DARAW</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://liangwenhao.cn/">大懒虫</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.eteai.com">Heaton</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jwwey.com">EY</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yinfengblog.com">Yin Feng</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/cbad7dd16f6d/latest_articles">我的简书</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sunxiaoyu233.cn">我的网站</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">努力&lt;br&gt;&lt;br&gt;希望能成为一名前端工程师&lt;br&gt;加油</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
