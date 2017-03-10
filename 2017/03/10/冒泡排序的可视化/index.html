@@ -6,26 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>写一个番茄钟（遇到的坑） | 少年</title>
+  <title>冒泡排序的可视化 | 少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大致功能：设置好学习时间和休息时间，点击开始倒计时。
-同时背景颜色区域逐渐变高直至倒计时结束时充满整个区域。
-然后进入休息时间，开始倒计时。">
+  <meta name="description" content="这是IFE基础JavaScript练习（二），实现冒泡排序的可视化，用高度表示数字的大小，然后可视化的进行排序（由于冒泡排序比较简单，我就先从冒泡排序开始）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写一个番茄钟（遇到的坑）">
-<meta property="og:url" content="http://yoursite.com/2016/12/12/写一个番茄钟（遇到的坑）/index.html">
+<meta property="og:title" content="冒泡排序的可视化">
+<meta property="og:url" content="http://yoursite.com/2017/03/10/冒泡排序的可视化/index.html">
 <meta property="og:site_name" content="少年">
-<meta property="og:description" content="大致功能：设置好学习时间和休息时间，点击开始倒计时。
-同时背景颜色区域逐渐变高直至倒计时结束时充满整个区域。
-然后进入休息时间，开始倒计时。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-dbc2d7760ac74666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-12-11T16:15:27.059Z">
+<meta property="og:description" content="这是IFE基础JavaScript练习（二），实现冒泡排序的可视化，用高度表示数字的大小，然后可视化的进行排序（由于冒泡排序比较简单，我就先从冒泡排序开始）">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-b17cbcb6014812a7.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-1409422491e46992.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-10T04:44:05.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写一个番茄钟（遇到的坑）">
-<meta name="twitter:description" content="大致功能：设置好学习时间和休息时间，点击开始倒计时。
-同时背景颜色区域逐渐变高直至倒计时结束时充满整个区域。
-然后进入休息时间，开始倒计时。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3259626-dbc2d7760ac74666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="冒泡排序的可视化">
+<meta name="twitter:description" content="这是IFE基础JavaScript练习（二），实现冒泡排序的可视化，用高度表示数字的大小，然后可视化的进行排序（由于冒泡排序比较简单，我就先从冒泡排序开始）">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3259626-b17cbcb6014812a7.gif?imageMogr2/auto-orient/strip">
   
     <link rel="alternative" href="/atom.xml" title="少年" type="application/atom+xml">
   
@@ -149,7 +144,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-写一个番茄钟（遇到的坑）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-冒泡排序的可视化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -159,7 +154,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      写一个番茄钟（遇到的坑）
+      冒泡排序的可视化
     </h1>
   
 
@@ -167,43 +162,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>大致功能：</strong><br>设置好学习时间和休息时间，点击开始倒计时。</p>
-<p>同时背景颜色区域逐渐变高直至倒计时结束时充满整个区域。</p>
-<p>然后进入休息时间，开始倒计时。</p>
+        <p>这是IFE基础JavaScript练习（二），实现冒泡排序的可视化，用高度表示数字的大小，然后可视化的进行排序（由于冒泡排序比较简单，我就先从冒泡排序开始）</p>
 <a id="more"></a>
-<p>注意在倒计时的时候改变时间按钮是不可用的，点击倒计时暂停后可以更改时间。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3259626-dbc2d7760ac74666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="大概长这样"></p>
-<p><a href="http://sunxiaoyu233.cn/FCC/timer.html" target="_blank" rel="external">请戳这里试用</a></p>
-<p><strong>大致思路</strong></p>
-<p>很好想，就是个倒计时嘛。再加上背景高度变化，然而实际写起来有很多坑</p>
-<p><strong>遇到的坑</strong></p>
-<p> 倒计时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function showTime() &#123;</div><div class="line">  secs -= 1;  //时间递减（已转换为秒钟）</div><div class="line">  var h = Math.floor(secs / 3600);  //小时</div><div class="line">  var m = Math.floor(secs % 3600 / 60);  //分钟</div><div class="line">  var s = Math.floor(secs % 3600 % 60);  //秒钟</div><div class="line">  return (</div><div class="line">	(h &gt; 0 ? h + &quot;:&quot; + (m &lt; 10 ? &quot;0&quot; : &quot;&quot;) : &quot;&quot;) + m + &quot;:&quot; + (s &lt; 10 ? &quot;0&quot; : &quot;&quot;) + s</div><div class="line">  );</div><div class="line">  var setTime = setTimeout(showTime, 1000);</div><div class="line">	if (secs &lt; 0) &#123;</div><div class="line">		clearInterval(setTime); //倒计时完毕清除计数器</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>把得到的时间转换成毫秒，再去操作。</p>
-<p>大概就是这样写，其实不难想，关于倒计时更多的东西建议去看<a href="https://github.com/gomeplusFED/blog/blob/master/2016-04/do-you-really-understand-how-to-write-a-countdown-by-javascript.md" target="_blank" rel="external">这篇文章</a></p>
-<p>写一个学习时间的倒计时，然后倒计时为0时，清除倒计时，并运行休息倒计时。</p>
-<p><strong>背景高度的变化</strong></p>
-<p>css里使用绝对定位，并且设置<code>bottom</code>为<code>0</code>，再根据时间动态改变高度就可以达到效果了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var fillLength = 1 - (secs / (sltime.innerHTML * 60)); //获取剩余时间与总时间的比值</div><div class="line">fill.style.height = fillLength * 300 + &quot;px&quot;; //根据比值设置高度</div></pre></td></tr></table></figure>
-<p><strong>改变时间按钮的控制</strong></p>
-<p>当倒计时运行的时候，按钮是不可点击的，这里需要记录按钮是否被点击，我的做法是建一个全局变量，并根据按钮状态设置<code>true or false</code>，点击一次按钮改变一次值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var stopTime = false //初始化全局变量</div><div class="line">clock.onclick = function ifStop() &#123;</div><div class="line">	if (stopTime) &#123;</div><div class="line">		stopTime = false; //点击改变按钮状态</div><div class="line">	&#125; else &#123;</div><div class="line">		stopTime = true;</div><div class="line">		if (timeName.innerHTML == &quot;休息一下吧&quot;) &#123;  </div><div class="line">			firstToHms();//运行倒计时</div><div class="line">		&#125; else &#123;</div><div class="line">			secondsToHms();//运行倒计时</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>然后呢我就给改变时间函数加判断条件，只有满足条件才能继续执行，结果第一次满足条件之后后面一直就可以运行了。。我的理解是函数被调用之后，运行完并没有销毁，下次再触发还会继续运行。那判断条件不是没用了吗。于是我又写了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setInterval(changeTime,1000);</div></pre></td></tr></table></figure>
-<p>每隔一秒钟去判断一次是否满足条件。。。手动监听按钮的状态，也是没谁了</p>
-<p>大致就是这么多，代码放在<a href="https://github.com/vshaonian/fcc/tree/master/pomodoro" target="_blank" rel="external">Github</a>了，写的非常乱。。</p>
+<p><strong>效果图如下</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-b17cbcb6014812a7.gif?imageMogr2/auto-orient/strip" alt="冒泡排序"><br><a href="http://sunxiaoyu233.cn/ife/binbin/task5/" target="_blank" rel="external">点击排序</a></p>
+<p><strong>什么是冒泡排序</strong></p>
+<blockquote>
+<p>冒泡排序是一种简单的交换类排序方法。基本思想是：从头开始扫描待排序数组，按顺序比较相邻两元素的大小。在第一趟排序中，从第一个数开始，比较其与后一位元素的大小，如果是逆序，就交换顺序，再对下一位元素开始操作。然后第二趟的时候对前n-1个进行操作（因为最后一位已经是最大的了）</p>
+</blockquote>
+<p>具体来说，比如</p>
+<p>原始数组<br>[13, 46, 25, 39, 30]</p>
+<p>第一次排序<br>[<strong>13</strong>, <strong>46</strong>, 25, 39, 30]   （从第一位开始比较是否逆序，如果是则交换位置）<br>[13, <strong>46</strong>, <strong>25</strong>, 39, 30]  （逆序，交换位置，继续比较）<br>[13, 25, <strong>46</strong>, <strong>39</strong>, 30]  （逆序，交换位置，继续比较）<br>[13, 25, 39, <strong>46</strong>, <strong>30</strong>]  （逆序，交换位置，继续比较）<br>[13, 25, 39, 30, 46] （第一次完成）</p>
+<p>第二次排序<br>[<strong>13</strong>,<strong> 25</strong>, 39, 30, 46]<br>[13, <strong>25</strong>, <strong>39</strong>, 30, 46]<br>[13, 25, <strong>39</strong>, <strong>30</strong>, 46] （逆序，交换顺序）<br>[13, 25, 30, 39, 46]  （第二次完成，注意最后一位不再进行比较）</p>
+<p><strong>算法实现</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var sort = function (arr) &#123;</div><div class="line">    for (var k = 0; k &lt; arr.length; k++) &#123;</div><div class="line">        for (var j = 0; j &lt; arr.length - k - 1; j++) &#123;</div><div class="line">            if (arr[j] &gt; arr[j + 1]) &#123;</div><div class="line">               var temp = arr[j];</div><div class="line">               arr[j] = arr[j + 1];</div><div class="line">               arr[j + 1] = temp;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>接下来是可视化</strong></p>
+<p>我们要用高度来表示数组元素的大小，可以这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function printf() &#123;</div><div class="line">        wrap.innerHTML = &quot;&quot;;  //清空上次数据</div><div class="line">        for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">            var div = document.createElement(&quot;div&quot;);</div><div class="line">            div.setAttribute(&quot;class&quot;, &quot;count&quot;); //设置class方便写样式</div><div class="line">            div.innerHTML = arr[i];</div><div class="line">            wrap.appendChild(div);</div><div class="line">            div.style.height = (5 * arr[i]) + &quot;px&quot;; //设置高度</div><div class="line">            div.style.left = (i * 35) + &quot;px&quot;; //设置绝对定位的位置</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>我们在css里给它们绝对定位，然后遍历数组进行输出，根据大小设置高度。如果和我一样有输入和输出的按钮可以给按钮绑定这个事件。如果只有一个输入框的话，可以给输入框绑定失焦事件，注意对数据正确性做验证。</p>
+<p><strong>现在就变成这样了</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-1409422491e46992.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>怎么让它动起来呢</strong></p>
+<p>思路：用数组记录每趟排序后的状态，定时根据状态数组更新DOM，这样看起来就像动画一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">var sort = document.getElementById(&quot;sort&quot;);</div><div class="line">    sort.onclick = function () &#123;</div><div class="line">        if (arr.length === 0) &#123;</div><div class="line">            alert(&quot;还没有输入数字哦！&quot;)</div><div class="line">        &#125; else &#123;</div><div class="line">            var domArr = [].slice.call(document.getElementsByClassName(&quot;count&quot;));</div><div class="line">            var state = [];</div><div class="line">            var sort = function (arr) &#123;</div><div class="line">                for (var k = 0; k &lt; arr.length; k++) &#123;</div><div class="line">                    for (var j = 0; j &lt; arr.length - k - 1; j++) &#123;</div><div class="line">                        if (arr[j] &gt; arr[j + 1]) &#123;</div><div class="line">                            var temp = arr[j];</div><div class="line">                            arr[j] = arr[j + 1];</div><div class="line">                            arr[j + 1] = temp;</div><div class="line">                            state.push(JSON.parse(JSON.stringify(arr)));</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            sort(arr);</div><div class="line">            var draw = function () &#123;</div><div class="line">                var bar, numArr;</div><div class="line">                numArr = state.shift() || [];</div><div class="line">                var q = 0;</div><div class="line">                for (bar in domArr) &#123;</div><div class="line">                    if (numArr[bar] !== undefined) &#123;</div><div class="line">                        domArr[bar].style.height = (5 * parseInt(numArr[bar])) + &quot;px&quot;;</div><div class="line">                        domArr[bar].style.left = (q * 35) + &quot;px&quot;;</div><div class="line">                        domArr[bar].innerHTML = numArr[bar];</div><div class="line">                        q++;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            setInterval(draw, 200);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>ok啦，<a href="https://github.com/vshaonian/IFE2017/blob/master/binbin/task5/index.html" target="_blank" rel="external">源码在这里</a></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/12/写一个番茄钟（遇到的坑）/" class="archive-article-date">
-  	<time datetime="2016-12-11T16:00:31.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-12</time>
+      <a href="/2017/03/10/冒泡排序的可视化/" class="archive-article-date">
+  	<time datetime="2017-03-10T04:42:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-10</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Demo/">Demo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FCC/">FCC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Demo/">Demo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IFE/">IFE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
       
@@ -216,18 +208,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/19/通过案例学习正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          通过案例学习正则表达式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/04/引用类型之Function类型/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">引用类型之Function类型</div>
+    <a href="/2017/02/27/纯原生JS实现H5小游戏/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">纯原生JS实现H5小游戏</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -261,7 +244,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="写一个番茄钟（遇到的坑）" data-title="写一个番茄钟（遇到的坑）" data-url="http://yoursite.com/2016/12/12/写一个番茄钟（遇到的坑）/"></div>
+	<div class="ds-thread" data-thread-key="冒泡排序的可视化" data-title="冒泡排序的可视化" data-url="http://yoursite.com/2017/03/10/冒泡排序的可视化/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
