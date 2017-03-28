@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vue踩坑之Vue-router | 少年</title>
+  <title>关于原型链的理解 | 少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅">
+  <meta name="description" content="JS初学者会遇到的三大难题：闭包，原型，继承。今天我来讲讲我对原型的理解，如果哪里有错误的地方，还请大家指正">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue踩坑之Vue-router">
-<meta property="og:url" content="http://yoursite.com/2017/03/24/Vue踩坑之Vue-router/index.html">
+<meta property="og:title" content="关于原型链的理解">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/关于原型链的理解/index.html">
 <meta property="og:site_name" content="少年">
-<meta property="og:description" content="照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-46a4045b7bb4b30e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-b9d459f8dd174642.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-03-24T06:55:42.000Z">
+<meta property="og:description" content="JS初学者会遇到的三大难题：闭包，原型，继承。今天我来讲讲我对原型的理解，如果哪里有错误的地方，还请大家指正">
+<meta property="og:image" content="http://yoursite.com//upload-images.jianshu.io/upload_images/3259626-00420020891397ad.png">
+<meta property="og:image" content="http://yoursite.com//upload-images.jianshu.io/upload_images/3259626-2b770d22e7cb17f9.png">
+<meta property="og:image" content="http://yoursite.com//upload-images.jianshu.io/upload_images/3259626-248e39a3e4a88f06.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-7425111c2a38a404.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-6d2feee5a058e6ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-28T12:21:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue踩坑之Vue-router">
-<meta name="twitter:description" content="照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3259626-46a4045b7bb4b30e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="关于原型链的理解">
+<meta name="twitter:description" content="JS初学者会遇到的三大难题：闭包，原型，继承。今天我来讲讲我对原型的理解，如果哪里有错误的地方，还请大家指正">
+<meta name="twitter:image" content="http://yoursite.com//upload-images.jianshu.io/upload_images/3259626-00420020891397ad.png">
   
     <link rel="alternative" href="/atom.xml" title="少年" type="application/atom+xml">
   
@@ -144,7 +147,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Vue踩坑之Vue-router" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-关于原型链的理解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -154,7 +157,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue踩坑之Vue-router
+      关于原型链的理解
     </h1>
   
 
@@ -162,34 +165,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅</p>
+        <p>JS初学者会遇到的三大难题：闭包，原型，继承。今天我来讲讲我对原型的理解，如果哪里有错误的地方，还请大家指正</p>
 <a id="more"></a>
-<p><strong>关于Vue-router2</strong></p>
-<p>我直接用npm安装的模板是这样的</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3259626-46a4045b7bb4b30e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这里是直接有个router文件夹的，路由的信息都在这里面的index.js文件里面</p>
-<p>这是原来的路由配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import Router from &apos;vue-router&apos;;</div><div class="line">import Hello from &apos;components/Hello&apos;;</div><div class="line"></div><div class="line">Vue.use(Router);</div><div class="line"></div><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">    &#123;</div><div class="line">      path: &apos;/&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: Hello</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>可以看出<code>path: &#39;/&#39;</code>就是根目录下的组件，默认是Hello，如果我们想在页面中再引入一个组件，就可以直接在这个path目录下写，比如我们再加个header组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import Router from &apos;vue-router&apos;;</div><div class="line">import Hello from &apos;components/Hello&apos;;</div><div class="line">// 导入组件</div><div class="line">import Header from &apos;components/header/header&apos;;</div><div class="line"></div><div class="line">Vue.use(Router);</div><div class="line"></div><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">    &#123;</div><div class="line">      path: &apos;/&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: Hello,</div><div class="line">        // 注册组件，命名为Header</div><div class="line">        Header: Header</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>然后在App.vue文件内写入就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-view name=&quot;Header&quot;&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
-<p>不同的组件以name区分，所以要记得带上name,默认的就可以省略。</p>
-<p><strong>不同地址的组件</strong></p>
-<p>比如我们要实现点击跳转到该组件</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3259626-b9d459f8dd174642.gif?imageMogr2/auto-orient/strip" alt="不同页面之间的组件"></p>
-<p>仍然在router文件夹里的index.js文件内，继续配置router信息就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import Router from &apos;vue-router&apos;;</div><div class="line">import Hello from &apos;components/Hello&apos;;</div><div class="line">import Header from &apos;components/header/header&apos;;</div><div class="line">import goods from &apos;components/goods/goods&apos;;</div><div class="line">import ratings from &apos;components/ratings/ratings&apos;;</div><div class="line">import seller from &apos;components/seller/seller&apos;;</div><div class="line"></div><div class="line">Vue.use(Router);</div><div class="line"></div><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">    &#123;</div><div class="line">      path: &apos;/&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: Hello,</div><div class="line">        Header: Header</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      // 地址</div><div class="line">      path: &apos;/goods&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: goods</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      path: &apos;/ratings&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: ratings</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      path: &apos;/seller&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: seller</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>然后在App.vue里使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 这里相当于一个a标签</div><div class="line">&lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line"></div><div class="line">// 然后在相应的区域里显示</div><div class="line">&lt;router-view&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
-<p>以上代码均可以在<a href="https://github.com/vshaonian/eleme" target="_blank" rel="external">我的Github</a>找到。</p>
+<p><strong>首先是关于prototype</strong></p>
+<p>我们每创建一个函数，它都会包括一个<code>prototype</code>属性。这个属性是一个指针，指向一个对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function foo()&#123;&#125;</div><div class="line">typeof foo.prototype // &quot;object&quot;</div></pre></td></tr></table></figure></p>
+<p>那么这个对象里面有什么呢？</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3259626-00420020891397ad.png" alt=""></p>
+<p>可以看到里面有一个<code>constructor</code>属性和一个<code>__proto__</code>属性。而且<code>constructor</code>指向了<code>foo</code></p>
+<p>那么为什么每次创建函数的时候都会有这个属性呢？看下面这个例子</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3259626-2b770d22e7cb17f9.png" alt=""></p>
+<p>那么问题来了，儿子哪来的钱呢？原来是父亲的钱。可是父亲的钱为什么可以算到儿子头上呢？是不是可以理解为父亲的<code>prototype</code>里的属性都会被儿子继承。</p>
+<p>对了这就是<code>prototype</code>的作用，<strong>每个通过构造器构造出来的实例都可以拥有<code>prototype</code>里的属性</strong>（实例就是通过构造器构造出来的对象，比如儿子就是父亲的实例）</p>
+<p>那么儿子为什么可以拿到父亲的钱呢？换句话说，父亲为什么会把钱给儿子呢。现实中你可能会说了，因为<strong>血缘关系</strong>。</p>
+<p>同样在js里也有血缘关系，那就是<strong>[[Prototype]]</strong></p>
+<p><strong>关于[[Prototype]]和属性查找</strong></p>
+<p>儿子并没有钱，通过血缘关系获得了父亲的钱，这就是属性查找。</p>
+<p>在js里就是，引擎在<code>son</code>函数里查找有没有<code>money</code>这个属性，如果这个函数没有这个属性，会顺着<em>血缘关系</em>查找上一级，也就是<code>father</code>函数，如果有<code>money</code>属性，就返回这个属性的值，如果没有，会继续向上一级查找，直到查找到顶级对象，如果还没有，就会返回<code>undefined</code>。这就是<strong>原型链</strong>。就好像问儿子，有车吗？没有。然后儿子去问父亲，父亲也没用，再去上一级问。。如果全家都没有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">son.car // undefined</div></pre></td></tr></table></figure></p>
+<p>我们多次提到<em>血缘关系</em>，前面也说过在js里是<code>[[Prototype]]</code>。但是这个属性是js内置的属性，并不能让我们使用。所以在chrome和firefox里提供了<code>__proto__</code>来表示<em>血缘关系</em>。后面我们都使用<code>__proto__</code>来代替<code>[[Prototype]]</code>。但是一定要注意在开发的时候不能使用<code>__proto__</code>。</p>
+<p>来继续看<br><img src="//upload-images.jianshu.io/upload_images/3259626-248e39a3e4a88f06.png" alt=""></p>
+<p>奇怪的是<code>son.__proto__</code>并不指向<code>father</code>。而是指向一个对象，这个对象的<code>constructor</code>指向<code>father</code>函数。</p>
+<p>通过前面的了解，这个对象不就是<code>father.prototype</code>吗。我们验证一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">son.__proto__ === father.prototype // true</div></pre></td></tr></table></figure></p>
+<p>是不是觉得原型关系快要浮出水面了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-7425111c2a38a404.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>属性查找就是顺着<code>__proto__</code>查找，<code>__proto__</code>链就是原型链</strong></p>
+<p><strong>那么js为什么要设计一个不能在开发中使用的内置<strong>proto</strong></strong></p>
+<p>在正常的面向对象的语言里，一个类所实例化的对象，里面都会有这个类所有属性的复制。</p>
+<p>但是js没有类啊，怎么实现关联呢。所以就有了<code>__proto__</code></p>
+<p>回头看一下，好像还有一个属性还没有讲</p>
+<p><strong>关于constructor</strong></p>
+<p>注意这个属性<strong>并不是</strong>表示由谁构造。或者说并不能准确的表示。我们来看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">son.constructor === father // true</div><div class="line"></div><div class="line">// 父亲改嫁了（重写原型对象）</div><div class="line">father.prototype = &#123;money: 300&#125;</div><div class="line"></div><div class="line">// 又生了一个女儿</div><div class="line">var daughter = new father();</div><div class="line"></div><div class="line">daughter.constructor === father // false</div><div class="line">daughter.constructor === Object // true</div><div class="line">// 这就有点奇妙了</div></pre></td></tr></table></figure>
+<p>为什么会造成这种情况呢</p>
+<p><strong>其实<code>constructor</code>准备的说是指向引用对象关联的函数</strong></p>
+<p>因为实例其实并没有<code>constructor</code>属性，这个属性是委托在实例的<code>__proto__</code>对象上。所以把一个新的对象赋值给<code>father</code>之后，新的实例的<code>constructor</code>其实通过<code>__proto__</code>指向了新的对象<code>{monet: 300}</code>的<code>constructor</code>。这个对象是通过字面量的方式创建的，所以他的<code>constructor</code>是指向<code>Object</code>的</p>
+<p><strong>上面都懂了的话，我要放大招了</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-6d2feee5a058e6ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原型链完全图解，图片来自谷歌"></p>
+<p>不要慌。。一点一点来看</p>
+<p>首先<code>f2</code>和<code>f1</code>是由<code>Foo</code>构造出来的，所以它们的<code>__proto__</code>指向<code>Foo.prototype</code>，而<code>Foo.prototype</code>是一个对象，所以它的<code>__proto__</code>指向顶级对象<code>Object.prototype</code></p>
+<p><code>o1</code>和<code>o2</code>是对象字面量构造出来的，相当于<code>new Object</code>。所以它们的<code>__proto__</code>直接指向<code>Object.prototype</code></p>
+<p><strong>那为什么<code>Foo</code>的<code>__proto__</code>指向<code>Function.prototype</code>呢？</strong></p>
+<p>因为<code>Function</code>是一个顶级构造器，而<code>Foo</code>函数相当于<code>new Function</code>构造出来的。也就是在js里，所有的函数，它们的<code>__proto__</code>都是指向<code>Function.prototype</code>（包括它自己和Object）。而<code>Function.prototype</code>又指向<code>Object.prototype</code>。</p>
+<p>所以原型链的顶端，也就是顶级对象是<code>Object.prototype</code>，它是<code>Object</code>的实例，而<code>Object</code>本身是一个构造器</p>
+<p>九九归一…</p>
+<p>应该就是这么多了，欢迎指正</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/24/Vue踩坑之Vue-router/" class="archive-article-date">
-  	<time datetime="2017-03-24T06:54:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-24</time>
+      <a href="/2017/03/28/关于原型链的理解/" class="archive-article-date">
+  	<time datetime="2017-03-28T12:19:52.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-28</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Demo/">Demo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
       
@@ -202,18 +232,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/28/关于原型链的理解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于原型链的理解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/10/冒泡排序的可视化/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">冒泡排序的可视化</div>
+    <a href="/2017/03/24/Vue踩坑之Vue-router/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue踩坑之Vue-router</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -247,7 +268,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Vue踩坑之Vue-router" data-title="Vue踩坑之Vue-router" data-url="http://yoursite.com/2017/03/24/Vue踩坑之Vue-router/"></div>
+	<div class="ds-thread" data-thread-key="关于原型链的理解" data-title="关于原型链的理解" data-url="http://yoursite.com/2017/03/28/关于原型链的理解/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

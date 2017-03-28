@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-24T06:55:42.000Z</updated>
+  <updated>2017-03-28T12:21:03.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于原型链的理解</title>
+    <link href="http://yoursite.com/2017/03/28/%E5%85%B3%E4%BA%8E%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>http://yoursite.com/2017/03/28/关于原型链的理解/</id>
+    <published>2017-03-28T12:19:52.000Z</published>
+    <updated>2017-03-28T12:21:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>JS初学者会遇到的三大难题：闭包，原型，继承。今天我来讲讲我对原型的理解，如果哪里有错误的地方，还请大家指正</p>
+<a id="more"></a>
+<p><strong>首先是关于prototype</strong></p>
+<p>我们每创建一个函数，它都会包括一个<code>prototype</code>属性。这个属性是一个指针，指向一个对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function foo()&#123;&#125;</div><div class="line">typeof foo.prototype // &quot;object&quot;</div></pre></td></tr></table></figure></p>
+<p>那么这个对象里面有什么呢？</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3259626-00420020891397ad.png" alt=""></p>
+<p>可以看到里面有一个<code>constructor</code>属性和一个<code>__proto__</code>属性。而且<code>constructor</code>指向了<code>foo</code></p>
+<p>那么为什么每次创建函数的时候都会有这个属性呢？看下面这个例子</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3259626-2b770d22e7cb17f9.png" alt=""></p>
+<p>那么问题来了，儿子哪来的钱呢？原来是父亲的钱。可是父亲的钱为什么可以算到儿子头上呢？是不是可以理解为父亲的<code>prototype</code>里的属性都会被儿子继承。</p>
+<p>对了这就是<code>prototype</code>的作用，<strong>每个通过构造器构造出来的实例都可以拥有<code>prototype</code>里的属性</strong>（实例就是通过构造器构造出来的对象，比如儿子就是父亲的实例）</p>
+<p>那么儿子为什么可以拿到父亲的钱呢？换句话说，父亲为什么会把钱给儿子呢。现实中你可能会说了，因为<strong>血缘关系</strong>。</p>
+<p>同样在js里也有血缘关系，那就是<strong>[[Prototype]]</strong></p>
+<p><strong>关于[[Prototype]]和属性查找</strong></p>
+<p>儿子并没有钱，通过血缘关系获得了父亲的钱，这就是属性查找。</p>
+<p>在js里就是，引擎在<code>son</code>函数里查找有没有<code>money</code>这个属性，如果这个函数没有这个属性，会顺着<em>血缘关系</em>查找上一级，也就是<code>father</code>函数，如果有<code>money</code>属性，就返回这个属性的值，如果没有，会继续向上一级查找，直到查找到顶级对象，如果还没有，就会返回<code>undefined</code>。这就是<strong>原型链</strong>。就好像问儿子，有车吗？没有。然后儿子去问父亲，父亲也没用，再去上一级问。。如果全家都没有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">son.car // undefined</div></pre></td></tr></table></figure></p>
+<p>我们多次提到<em>血缘关系</em>，前面也说过在js里是<code>[[Prototype]]</code>。但是这个属性是js内置的属性，并不能让我们使用。所以在chrome和firefox里提供了<code>__proto__</code>来表示<em>血缘关系</em>。后面我们都使用<code>__proto__</code>来代替<code>[[Prototype]]</code>。但是一定要注意在开发的时候不能使用<code>__proto__</code>。</p>
+<p>来继续看<br><img src="//upload-images.jianshu.io/upload_images/3259626-248e39a3e4a88f06.png" alt=""></p>
+<p>奇怪的是<code>son.__proto__</code>并不指向<code>father</code>。而是指向一个对象，这个对象的<code>constructor</code>指向<code>father</code>函数。</p>
+<p>通过前面的了解，这个对象不就是<code>father.prototype</code>吗。我们验证一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">son.__proto__ === father.prototype // true</div></pre></td></tr></table></figure></p>
+<p>是不是觉得原型关系快要浮出水面了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-7425111c2a38a404.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>属性查找就是顺着<code>__proto__</code>查找，<code>__proto__</code>链就是原型链</strong></p>
+<p><strong>那么js为什么要设计一个不能在开发中使用的内置<strong>proto</strong></strong></p>
+<p>在正常的面向对象的语言里，一个类所实例化的对象，里面都会有这个类所有属性的复制。</p>
+<p>但是js没有类啊，怎么实现关联呢。所以就有了<code>__proto__</code></p>
+<p>回头看一下，好像还有一个属性还没有讲</p>
+<p><strong>关于constructor</strong></p>
+<p>注意这个属性<strong>并不是</strong>表示由谁构造。或者说并不能准确的表示。我们来看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">son.constructor === father // true</div><div class="line"></div><div class="line">// 父亲改嫁了（重写原型对象）</div><div class="line">father.prototype = &#123;money: 300&#125;</div><div class="line"></div><div class="line">// 又生了一个女儿</div><div class="line">var daughter = new father();</div><div class="line"></div><div class="line">daughter.constructor === father // false</div><div class="line">daughter.constructor === Object // true</div><div class="line">// 这就有点奇妙了</div></pre></td></tr></table></figure>
+<p>为什么会造成这种情况呢</p>
+<p><strong>其实<code>constructor</code>准备的说是指向引用对象关联的函数</strong></p>
+<p>因为实例其实并没有<code>constructor</code>属性，这个属性是委托在实例的<code>__proto__</code>对象上。所以把一个新的对象赋值给<code>father</code>之后，新的实例的<code>constructor</code>其实通过<code>__proto__</code>指向了新的对象<code>{monet: 300}</code>的<code>constructor</code>。这个对象是通过字面量的方式创建的，所以他的<code>constructor</code>是指向<code>Object</code>的</p>
+<p><strong>上面都懂了的话，我要放大招了</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3259626-6d2feee5a058e6ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原型链完全图解，图片来自谷歌"></p>
+<p>不要慌。。一点一点来看</p>
+<p>首先<code>f2</code>和<code>f1</code>是由<code>Foo</code>构造出来的，所以它们的<code>__proto__</code>指向<code>Foo.prototype</code>，而<code>Foo.prototype</code>是一个对象，所以它的<code>__proto__</code>指向顶级对象<code>Object.prototype</code></p>
+<p><code>o1</code>和<code>o2</code>是对象字面量构造出来的，相当于<code>new Object</code>。所以它们的<code>__proto__</code>直接指向<code>Object.prototype</code></p>
+<p><strong>那为什么<code>Foo</code>的<code>__proto__</code>指向<code>Function.prototype</code>呢？</strong></p>
+<p>因为<code>Function</code>是一个顶级构造器，而<code>Foo</code>函数相当于<code>new Function</code>构造出来的。也就是在js里，所有的函数，它们的<code>__proto__</code>都是指向<code>Function.prototype</code>（包括它自己和Object）。而<code>Function.prototype</code>又指向<code>Object.prototype</code>。</p>
+<p>所以原型链的顶端，也就是顶级对象是<code>Object.prototype</code>，它是<code>Object</code>的实例，而<code>Object</code>本身是一个构造器</p>
+<p>九九归一…</p>
+<p>应该就是这么多了，欢迎指正</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JS初学者会遇到的三大难题：闭包，原型，继承。今天我来讲讲我对原型的理解，如果哪里有错误的地方，还请大家指正&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue踩坑之Vue-router</title>
