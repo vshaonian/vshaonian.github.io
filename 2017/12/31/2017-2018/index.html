@@ -6,21 +6,66 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vue踩坑之Vue-router | 少年</title>
+  <title>&lt;2017&gt;&lt;2018&gt; | 少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅">
+  <meta name="description" content="也来写个总结吧，突然看到草稿箱里躺着的去年的总结，莫名的感慨。
+一年过去，当初定下的目标完成了一部分。
+2017已完成的
+
+努力去考研了，虽然结果未知
+改掉了许多坏毛病，如晚睡晚起。。不吃早饭等等
+开始锻炼身体了
+
+总之这一年成长了不少。
+2018TODO
+
+补完计算机基础，包括操作系统，数据库，组成原理，编译原理
+学c， java （目前进度还行）
+毕业论文
+继续坚持锻炼
+
+很多话不是很想说出来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue踩坑之Vue-router">
-<meta property="og:url" content="http://yoursite.com/2017/03/24/Vue踩坑之Vue-router/index.html">
+<meta property="og:title" content="<2017><2018>">
+<meta property="og:url" content="http://yoursite.com/2017/12/31/2017-2018/index.html">
 <meta property="og:site_name" content="少年">
-<meta property="og:description" content="照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-46a4045b7bb4b30e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3259626-b9d459f8dd174642.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-03-24T06:55:42.000Z">
+<meta property="og:description" content="也来写个总结吧，突然看到草稿箱里躺着的去年的总结，莫名的感慨。
+一年过去，当初定下的目标完成了一部分。
+2017已完成的
+
+努力去考研了，虽然结果未知
+改掉了许多坏毛病，如晚睡晚起。。不吃早饭等等
+开始锻炼身体了
+
+总之这一年成长了不少。
+2018TODO
+
+补完计算机基础，包括操作系统，数据库，组成原理，编译原理
+学c， java （目前进度还行）
+毕业论文
+继续坚持锻炼
+
+很多话不是很想说出来">
+<meta property="og:updated_time" content="2017-12-31T14:39:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue踩坑之Vue-router">
-<meta name="twitter:description" content="照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3259626-46a4045b7bb4b30e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="<2017><2018>">
+<meta name="twitter:description" content="也来写个总结吧，突然看到草稿箱里躺着的去年的总结，莫名的感慨。
+一年过去，当初定下的目标完成了一部分。
+2017已完成的
+
+努力去考研了，虽然结果未知
+改掉了许多坏毛病，如晚睡晚起。。不吃早饭等等
+开始锻炼身体了
+
+总之这一年成长了不少。
+2018TODO
+
+补完计算机基础，包括操作系统，数据库，组成原理，编译原理
+学c， java （目前进度还行）
+毕业论文
+继续坚持锻炼
+
+很多话不是很想说出来">
   
     <link rel="alternative" href="/atom.xml" title="少年" type="application/atom+xml">
   
@@ -144,7 +189,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Vue踩坑之Vue-router" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2017-2018" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -154,7 +199,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue踩坑之Vue-router
+      &lt;2017&gt;&lt;2018&gt;
     </h1>
   
 
@@ -162,34 +207,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>照着教程学习Vue，由于教程使用的是Vue1，但是我用npm安装的是2.0版本，所以开始了踩坑之旅</p>
-<a id="more"></a>
-<p><strong>关于Vue-router2</strong></p>
-<p>我直接用npm安装的模板是这样的</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3259626-46a4045b7bb4b30e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这里是直接有个router文件夹的，路由的信息都在这里面的index.js文件里面</p>
-<p>这是原来的路由配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import Router from &apos;vue-router&apos;;</div><div class="line">import Hello from &apos;components/Hello&apos;;</div><div class="line"></div><div class="line">Vue.use(Router);</div><div class="line"></div><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">    &#123;</div><div class="line">      path: &apos;/&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: Hello</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>可以看出<code>path: &#39;/&#39;</code>就是根目录下的组件，默认是Hello，如果我们想在页面中再引入一个组件，就可以直接在这个path目录下写，比如我们再加个header组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import Router from &apos;vue-router&apos;;</div><div class="line">import Hello from &apos;components/Hello&apos;;</div><div class="line">// 导入组件</div><div class="line">import Header from &apos;components/header/header&apos;;</div><div class="line"></div><div class="line">Vue.use(Router);</div><div class="line"></div><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">    &#123;</div><div class="line">      path: &apos;/&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: Hello,</div><div class="line">        // 注册组件，命名为Header</div><div class="line">        Header: Header</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>然后在App.vue文件内写入就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-view name=&quot;Header&quot;&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
-<p>不同的组件以name区分，所以要记得带上name,默认的就可以省略。</p>
-<p><strong>不同地址的组件</strong></p>
-<p>比如我们要实现点击跳转到该组件</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3259626-b9d459f8dd174642.gif?imageMogr2/auto-orient/strip" alt="不同页面之间的组件"></p>
-<p>仍然在router文件夹里的index.js文件内，继续配置router信息就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import Router from &apos;vue-router&apos;;</div><div class="line">import Hello from &apos;components/Hello&apos;;</div><div class="line">import Header from &apos;components/header/header&apos;;</div><div class="line">import goods from &apos;components/goods/goods&apos;;</div><div class="line">import ratings from &apos;components/ratings/ratings&apos;;</div><div class="line">import seller from &apos;components/seller/seller&apos;;</div><div class="line"></div><div class="line">Vue.use(Router);</div><div class="line"></div><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">    &#123;</div><div class="line">      path: &apos;/&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: Hello,</div><div class="line">        Header: Header</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      // 地址</div><div class="line">      path: &apos;/goods&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: goods</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      path: &apos;/ratings&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: ratings</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      path: &apos;/seller&apos;,</div><div class="line">      components: &#123;</div><div class="line">        default: seller</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>然后在App.vue里使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 这里相当于一个a标签</div><div class="line">&lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line"></div><div class="line">// 然后在相应的区域里显示</div><div class="line">&lt;router-view&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
-<p>以上代码均可以在<a href="https://github.com/vshaonian/eleme" target="_blank" rel="external">我的Github</a>找到。</p>
+        <p>也来写个总结吧，突然看到草稿箱里躺着的去年的总结，莫名的感慨。</p>
+<p>一年过去，当初定下的目标完成了一部分。</p>
+<p><strong>2017已完成的</strong></p>
+<ol>
+<li>努力去考研了，虽然结果未知</li>
+<li>改掉了许多坏毛病，如晚睡晚起。。不吃早饭等等</li>
+<li>开始锻炼身体了</li>
+</ol>
+<p>总之这一年成长了不少。</p>
+<p><strong>2018TODO</strong></p>
+<ol>
+<li>补完计算机基础，包括操作系统，数据库，组成原理，编译原理</li>
+<li>学c， java （目前进度还行）</li>
+<li>毕业论文</li>
+<li>继续坚持锻炼</li>
+</ol>
+<p>很多话不是很想说出来，就这样吧，希望明年再来看的时候，能觉得一年没有白费。</p>
+<p>最后希望自己，能更坚强，更成熟，变得更强哈哈哈</p>
+<p><em>加油2018！</em></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/24/Vue踩坑之Vue-router/" class="archive-article-date">
-  	<time datetime="2017-03-24T06:54:29.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-24</time>
+      <a href="/2017/12/31/2017-2018/" class="archive-article-date">
+  	<time datetime="2017-12-31T14:28:37.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-12-31</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Demo/">Demo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
       
@@ -202,18 +250,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/28/关于原型链的理解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于原型链的理解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/10/冒泡排序的可视化/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">冒泡排序的可视化</div>
+    <a href="/2017/12/31/C-Program-Files-Git-2017-2018/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">&lt;C:/Program Files/Git/2017&gt;&lt;2018&gt;</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -247,7 +286,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Vue踩坑之Vue-router" data-title="Vue踩坑之Vue-router" data-url="http://yoursite.com/2017/03/24/Vue踩坑之Vue-router/"></div>
+	<div class="ds-thread" data-thread-key="2017-2018" data-title="&lt;2017&gt;&lt;2018&gt;" data-url="http://yoursite.com/2017/12/31/2017-2018/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

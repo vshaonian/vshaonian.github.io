@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-28T12:21:03.000Z</updated>
+  <updated>2017-12-31T14:39:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>&lt;2017&gt;&lt;2018&gt;</title>
+    <link href="http://yoursite.com/2017/12/31/2017-2018/"/>
+    <id>http://yoursite.com/2017/12/31/2017-2018/</id>
+    <published>2017-12-31T14:28:37.000Z</published>
+    <updated>2017-12-31T14:39:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>也来写个总结吧，突然看到草稿箱里躺着的去年的总结，莫名的感慨。</p>
+<p>一年过去，当初定下的目标完成了一部分。</p>
+<p><strong>2017已完成的</strong></p>
+<ol>
+<li>努力去考研了，虽然结果未知</li>
+<li>改掉了许多坏毛病，如晚睡晚起。。不吃早饭等等</li>
+<li>开始锻炼身体了</li>
+</ol>
+<p>总之这一年成长了不少。</p>
+<p><strong>2018TODO</strong></p>
+<ol>
+<li>补完计算机基础，包括操作系统，数据库，组成原理，编译原理</li>
+<li>学c， java （目前进度还行）</li>
+<li>毕业论文</li>
+<li>继续坚持锻炼</li>
+</ol>
+<p>很多话不是很想说出来，就这样吧，希望明年再来看的时候，能觉得一年没有白费。</p>
+<p>最后希望自己，能更坚强，更成熟，变得更强哈哈哈</p>
+<p><em>加油2018！</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;也来写个总结吧，突然看到草稿箱里躺着的去年的总结，莫名的感慨。&lt;/p&gt;
+&lt;p&gt;一年过去，当初定下的目标完成了一部分。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2017已完成的&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;努力去考研了，虽然结果未知&lt;/li&gt;
+&lt;li&gt;改掉了许多坏毛病，
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&lt;C:/Program Files/Git/2017&gt;&lt;2018&gt;</title>
+    <link href="http://yoursite.com/2017/12/31/C-Program-Files-Git-2017-2018/"/>
+    <id>http://yoursite.com/2017/12/31/C-Program-Files-Git-2017-2018/</id>
+    <published>2017-12-31T14:26:25.000Z</published>
+    <updated>2017-12-31T14:26:25.939Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>关于原型链的理解</title>
